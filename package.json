@@ -1,0 +1,20 @@
+{
+  "name": "playwright-report-viewer",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Philippos Melikidis",
+  "description": "Small viewer for Playwright JSON reporter output",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vite": "^6.0.7"
+  }
+}
