@@ -1,0 +1,1184 @@
+{
+  "config": {
+    "rootDir": "/home/philipp/work/shop-e2e",
+    "configFile": "/home/philipp/work/shop-e2e/playwright.config.ts",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalTimeout": 0,
+    "maxFailures": 0,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json",
+        {
+          "outputFile": "results.json"
+        }
+      ]
+    ],
+    "retries": 2,
+    "workers": 4,
+    "version": "1.49.1",
+    "projects": [
+      {
+        "outputDir": "/home/philipp/work/shop-e2e/test-results",
+        "repeatEach": 1,
+        "retries": 2,
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/philipp/work/shop-e2e/tests",
+        "timeout": 30000
+      }
+    ]
+  },
+  "suites": [
+    {
+      "title": "auth.spec.ts",
+      "file": "auth.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "sign in",
+          "file": "auth.spec.ts",
+          "line": 8,
+          "column": 3,
+          "specs": [
+            {
+              "title": "redirects to the dashboard after a valid login",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1842,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:12.621Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "auth-1",
+              "file": "auth.spec.ts",
+              "line": 12,
+              "column": 5
+            },
+            {
+              "title": "shows a validation error for an empty password",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 612,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:12.748Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "auth-2",
+              "file": "auth.spec.ts",
+              "line": 24,
+              "column": 5
+            },
+            {
+              "title": "rejects a wrong password",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1104,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:12.946Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "auth-3",
+              "file": "auth.spec.ts",
+              "line": 33,
+              "column": 5
+            },
+            {
+              "title": "locks the account after five failed attempts",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 30412,
+                      "errors": [
+                        {
+                          "message": "Timed out 30000ms waiting for expect(locator).toBeVisible()\n\nLocator: getByTestId('account-locked-notice')\nExpected: visible\nReceived: hidden\n\nCall log:\n  - expect.toBeVisible with timeout 30000ms\n  - waiting for getByTestId('account-locked-notice')",
+                          "stack": "Error: Timed out 30000ms waiting for expect(locator).toBeVisible()\n    at /home/philipp/work/shop-e2e/tests/auth.spec.ts:74:52"
+                        }
+                      ],
+                      "error": {
+                        "message": "Timed out 30000ms waiting for expect(locator).toBeVisible()\n\nLocator: getByTestId('account-locked-notice')\nExpected: visible\nReceived: hidden\n\nCall log:\n  - expect.toBeVisible with timeout 30000ms\n  - waiting for getByTestId('account-locked-notice')",
+                        "stack": "Error: Timed out 30000ms waiting for expect(locator).toBeVisible()\n    at /home/philipp/work/shop-e2e/tests/auth.spec.ts:74:52"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:17.331Z",
+                      "attachments": [],
+                      "annotations": []
+                    },
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 30288,
+                      "errors": [
+                        {
+                          "message": "Timed out 30000ms waiting for expect(locator).toBeVisible()\n\nLocator: getByTestId('account-locked-notice')\nExpected: visible\nReceived: hidden\n\nCall log:\n  - expect.toBeVisible with timeout 30000ms\n  - waiting for getByTestId('account-locked-notice')",
+                          "stack": "Error: Timed out 30000ms waiting for expect(locator).toBeVisible()\n    at /home/philipp/work/shop-e2e/tests/auth.spec.ts:74:52"
+                        }
+                      ],
+                      "error": {
+                        "message": "Timed out 30000ms waiting for expect(locator).toBeVisible()\n\nLocator: getByTestId('account-locked-notice')\nExpected: visible\nReceived: hidden\n\nCall log:\n  - expect.toBeVisible with timeout 30000ms\n  - waiting for getByTestId('account-locked-notice')",
+                        "stack": "Error: Timed out 30000ms waiting for expect(locator).toBeVisible()\n    at /home/philipp/work/shop-e2e/tests/auth.spec.ts:74:52"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-05-14T08:41:21.698Z",
+                      "attachments": [],
+                      "annotations": []
+                    },
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 30355,
+                      "errors": [
+                        {
+                          "message": "Timed out 30000ms waiting for expect(locator).toBeVisible()\n\nLocator: getByTestId('account-locked-notice')\nExpected: visible\nReceived: hidden\n\nCall log:\n  - expect.toBeVisible with timeout 30000ms\n  - waiting for getByTestId('account-locked-notice')",
+                          "stack": "Error: Timed out 30000ms waiting for expect(locator).toBeVisible()\n    at /home/philipp/work/shop-e2e/tests/auth.spec.ts:74:52"
+                        }
+                      ],
+                      "error": {
+                        "message": "Timed out 30000ms waiting for expect(locator).toBeVisible()\n\nLocator: getByTestId('account-locked-notice')\nExpected: visible\nReceived: hidden\n\nCall log:\n  - expect.toBeVisible with timeout 30000ms\n  - waiting for getByTestId('account-locked-notice')",
+                        "stack": "Error: Timed out 30000ms waiting for expect(locator).toBeVisible()\n    at /home/philipp/work/shop-e2e/tests/auth.spec.ts:74:52"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-05-14T08:41:26.074Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "auth-4",
+              "file": "auth.spec.ts",
+              "line": 45,
+              "column": 5
+            },
+            {
+              "title": "keeps the redirect target after login",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 5218,
+                      "errors": [
+                        {
+                          "message": "Timed out 5000ms waiting for expect(page).toHaveURL(expected)\n\nExpected pattern: /\\/reports\\/weekly/\nReceived string: \"http://127.0.0.1:3000/dashboard\"",
+                          "stack": "Error: Timed out 5000ms waiting for expect(page).toHaveURL(expected)\n    at /home/philipp/work/shop-e2e/tests/auth.spec.ts:52:24"
+                        }
+                      ],
+                      "error": {
+                        "message": "Timed out 5000ms waiting for expect(page).toHaveURL(expected)\n\nExpected pattern: /\\/reports\\/weekly/\nReceived string: \"http://127.0.0.1:3000/dashboard\"",
+                        "stack": "Error: Timed out 5000ms waiting for expect(page).toHaveURL(expected)\n    at /home/philipp/work/shop-e2e/tests/auth.spec.ts:52:24"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:26.859Z",
+                      "attachments": [],
+                      "annotations": []
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1932,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-05-14T08:41:27.175Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "flaky"
+                }
+              ],
+              "id": "auth-5",
+              "file": "auth.spec.ts",
+              "line": 61,
+              "column": 5
+            }
+          ]
+        },
+        {
+          "title": "session",
+          "file": "auth.spec.ts",
+          "line": 76,
+          "column": 3,
+          "specs": [
+            {
+              "title": "persists the session across a reload",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2260,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:27.538Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "auth-6",
+              "file": "auth.spec.ts",
+              "line": 80,
+              "column": 5
+            },
+            {
+              "title": "logs out from the account menu",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1490,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:27.791Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "auth-7",
+              "file": "auth.spec.ts",
+              "line": 91,
+              "column": 5
+            },
+            {
+              "title": "sends the user back to login when the token expired",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "pending mail sandbox"
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:27.831Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "auth-8",
+              "file": "auth.spec.ts",
+              "line": 103,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "checkout.spec.ts",
+      "file": "checkout.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "cart",
+          "file": "checkout.spec.ts",
+          "line": 10,
+          "column": 3,
+          "specs": [
+            {
+              "title": "adds a single item",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1320,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:28.060Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "checkout-9",
+              "file": "checkout.spec.ts",
+              "line": 14,
+              "column": 5
+            },
+            {
+              "title": "updates the quantity of a line item",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1755,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:28.351Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "checkout-10",
+              "file": "checkout.spec.ts",
+              "line": 26,
+              "column": 5
+            },
+            {
+              "title": "removes the last item and shows the empty state",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1608,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:28.621Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "checkout-11",
+              "file": "checkout.spec.ts",
+              "line": 39,
+              "column": 5
+            },
+            {
+              "title": "applies a discount code",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5361,
+                      "errors": [
+                        {
+                          "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
+                          "stack": "Error: expect(locator).toHaveText(expected)\n    at /home/philipp/work/shop-e2e/tests/checkout.spec.ts:96:41"
+                        }
+                      ],
+                      "error": {
+                        "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
+                        "stack": "Error: expect(locator).toHaveText(expected)\n    at /home/philipp/work/shop-e2e/tests/checkout.spec.ts:96:41"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:29.427Z",
+                      "attachments": [],
+                      "annotations": []
+                    },
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5297,
+                      "errors": [
+                        {
+                          "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
+                          "stack": "Error: expect(locator).toHaveText(expected)\n    at /home/philipp/work/shop-e2e/tests/checkout.spec.ts:96:41"
+                        }
+                      ],
+                      "error": {
+                        "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
+                        "stack": "Error: expect(locator).toHaveText(expected)\n    at /home/philipp/work/shop-e2e/tests/checkout.spec.ts:96:41"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-05-14T08:41:30.224Z",
+                      "attachments": [],
+                      "annotations": []
+                    },
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5344,
+                      "errors": [
+                        {
+                          "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
+                          "stack": "Error: expect(locator).toHaveText(expected)\n    at /home/philipp/work/shop-e2e/tests/checkout.spec.ts:96:41"
+                        }
+                      ],
+                      "error": {
+                        "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
+                        "stack": "Error: expect(locator).toHaveText(expected)\n    at /home/philipp/work/shop-e2e/tests/checkout.spec.ts:96:41"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-05-14T08:41:31.027Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "checkout-12",
+              "file": "checkout.spec.ts",
+              "line": 54,
+              "column": 5
+            },
+            {
+              "title": "keeps the cart after a page reload",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2915,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:31.483Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "checkout-13",
+              "file": "checkout.spec.ts",
+              "line": 70,
+              "column": 5
+            }
+          ]
+        },
+        {
+          "title": "payment",
+          "file": "checkout.spec.ts",
+          "line": 84,
+          "column": 3,
+          "specs": [
+            {
+              "title": "accepts a valid test card",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 4380,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:32.149Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "checkout-14",
+              "file": "checkout.spec.ts",
+              "line": 88,
+              "column": 5
+            },
+            {
+              "title": "declines an expired card",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 3120,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:32.635Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "checkout-15",
+              "file": "checkout.spec.ts",
+              "line": 101,
+              "column": 5
+            },
+            {
+              "title": "shows an error when the payment provider times out",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 10344,
+                      "errors": [
+                        {
+                          "message": "page.waitForResponse: Timeout 10000ms exceeded while waiting for event \"response\"\n\nCall log:\n  - waiting for response \"**/payment/authorize\"",
+                          "stack": "Error: page.waitForResponse: Timeout 10000ms exceeded while waiting for event \"response\"\n    at /home/philipp/work/shop-e2e/tests/checkout.spec.ts:141:20"
+                        }
+                      ],
+                      "error": {
+                        "message": "page.waitForResponse: Timeout 10000ms exceeded while waiting for event \"response\"\n\nCall log:\n  - waiting for response \"**/payment/authorize\"",
+                        "stack": "Error: page.waitForResponse: Timeout 10000ms exceeded while waiting for event \"response\"\n    at /home/philipp/work/shop-e2e/tests/checkout.spec.ts:141:20"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:34.153Z",
+                      "attachments": [],
+                      "annotations": []
+                    },
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3877,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-05-14T08:41:34.747Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "flaky"
+                }
+              ],
+              "id": "checkout-16",
+              "file": "checkout.spec.ts",
+              "line": 115,
+              "column": 5
+            },
+            {
+              "title": "sends the order confirmation mail",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "pending mail sandbox"
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:34.787Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "checkout-17",
+              "file": "checkout.spec.ts",
+              "line": 132,
+              "column": 5
+            },
+            {
+              "title": "runs the full checkout flow for a guest user",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 9840,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:36.233Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "checkout-18",
+              "file": "checkout.spec.ts",
+              "line": 146,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api.spec.ts",
+      "file": "api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "products",
+          "file": "api.spec.ts",
+          "line": 5,
+          "column": 3,
+          "specs": [
+            {
+              "title": "GET /products returns the first page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 380,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:36.327Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "api-19",
+              "file": "api.spec.ts",
+              "line": 9,
+              "column": 5
+            },
+            {
+              "title": "GET /products supports paging",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 455,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:36.432Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "api-20",
+              "file": "api.spec.ts",
+              "line": 18,
+              "column": 5
+            },
+            {
+              "title": "GET /products/:id returns 404 for an unknown id",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 240,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:36.506Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "api-21",
+              "file": "api.spec.ts",
+              "line": 28,
+              "column": 5
+            },
+            {
+              "title": "GET /products filters by category",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 512,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:36.619Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "api-22",
+              "file": "api.spec.ts",
+              "line": 36,
+              "column": 5
+            }
+          ]
+        },
+        {
+          "title": "orders",
+          "file": "api.spec.ts",
+          "line": 48,
+          "column": 3,
+          "specs": [
+            {
+              "title": "POST /orders creates an order",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 690,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:36.758Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "api-23",
+              "file": "api.spec.ts",
+              "line": 52,
+              "column": 5
+            },
+            {
+              "title": "POST /orders rejects an empty cart",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 305,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:36.842Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "api-24",
+              "file": "api.spec.ts",
+              "line": 63,
+              "column": 5
+            },
+            {
+              "title": "GET /orders/:id returns the order total",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 1208,
+                      "errors": [
+                        {
+                          "message": "apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n\nCall log:\n  - → GET http://127.0.0.1:4010/orders/8842\n  - connect ECONNREFUSED 127.0.0.1:4010",
+                          "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n    at /home/philipp/work/shop-e2e/tests/api.spec.ts:118:30"
+                        }
+                      ],
+                      "error": {
+                        "message": "apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n\nCall log:\n  - → GET http://127.0.0.1:4010/orders/8842\n  - connect ECONNREFUSED 127.0.0.1:4010",
+                        "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n    at /home/philipp/work/shop-e2e/tests/api.spec.ts:118:30"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:37.055Z",
+                      "attachments": [],
+                      "annotations": []
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 1174,
+                      "errors": [
+                        {
+                          "message": "apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n\nCall log:\n  - → GET http://127.0.0.1:4010/orders/8842\n  - connect ECONNREFUSED 127.0.0.1:4010",
+                          "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n    at /home/philipp/work/shop-e2e/tests/api.spec.ts:118:30"
+                        }
+                      ],
+                      "error": {
+                        "message": "apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n\nCall log:\n  - → GET http://127.0.0.1:4010/orders/8842\n  - connect ECONNREFUSED 127.0.0.1:4010",
+                        "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n    at /home/philipp/work/shop-e2e/tests/api.spec.ts:118:30"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-05-14T08:41:37.263Z",
+                      "attachments": [],
+                      "annotations": []
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 1191,
+                      "errors": [
+                        {
+                          "message": "apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n\nCall log:\n  - → GET http://127.0.0.1:4010/orders/8842\n  - connect ECONNREFUSED 127.0.0.1:4010",
+                          "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n    at /home/philipp/work/shop-e2e/tests/api.spec.ts:118:30"
+                        }
+                      ],
+                      "error": {
+                        "message": "apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n\nCall log:\n  - → GET http://127.0.0.1:4010/orders/8842\n  - connect ECONNREFUSED 127.0.0.1:4010",
+                        "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n    at /home/philipp/work/shop-e2e/tests/api.spec.ts:118:30"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-05-14T08:41:37.473Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "api-25",
+              "file": "api.spec.ts",
+              "line": 74,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-05-14T08:41:12.318Z",
+    "duration": 64118,
+    "expected": 18,
+    "skipped": 2,
+    "unexpected": 3,
+    "flaky": 2
+  }
+}

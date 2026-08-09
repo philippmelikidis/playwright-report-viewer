@@ -1,15 +1,34 @@
 <script setup>
+import ReportSource from './components/ReportSource.vue'
+import SummaryCards from './components/SummaryCards.vue'
+import { useReport } from './composables/useReport.js'
+
+const { tests, summary, source, startedAt, error, loadSample, loadFile } = useReport()
+
+loadSample()
 </script>
 
 <template>
   <header class="topbar">
     <div class="inner">
       <h1>Playwright Report Viewer</h1>
+      <ReportSource
+        :source="source"
+        :started-at="startedAt"
+        @file="loadFile"
+        @sample="loadSample"
+      />
     </div>
   </header>
 
   <main>
-    <p class="notice muted">No report loaded yet.</p>
+    <p v-if="error" class="notice">{{ error }}</p>
+
+    <SummaryCards v-if="tests.length" :summary="summary" />
+
+    <p v-else-if="!error" class="notice muted">
+      This report contains no tests. Open another results.json to continue.
+    </p>
   </main>
 </template>
 
@@ -41,9 +60,22 @@ main {
 .notice {
   margin: 0;
   padding: 10px 14px;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: #fdf3f2;
+  border: 1px solid #f0dcd9;
   border-radius: 3px;
+  color: var(--failed);
+}
+
+.notice.muted {
+  background: var(--surface);
+  border-color: var(--border);
   color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 </style>
