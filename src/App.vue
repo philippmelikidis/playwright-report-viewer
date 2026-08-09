@@ -1,6 +1,7 @@
 <script setup>
 import ReportSource from './components/ReportSource.vue'
 import SummaryCards from './components/SummaryCards.vue'
+import TestTable from './components/TestTable.vue'
 import { useReport } from './composables/useReport.js'
 
 const { tests, summary, source, startedAt, error, loadSample, loadFile } = useReport()
@@ -24,7 +25,10 @@ loadSample()
   <main>
     <p v-if="error" class="notice">{{ error }}</p>
 
-    <SummaryCards v-if="tests.length" :summary="summary" />
+    <template v-if="tests.length">
+      <SummaryCards :summary="summary" />
+      <TestTable :tests="tests" />
+    </template>
 
     <p v-else-if="!error" class="notice muted">
       This report contains no tests. Open another results.json to continue.
