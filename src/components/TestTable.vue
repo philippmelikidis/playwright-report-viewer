@@ -12,7 +12,9 @@ const statusFilter = ref('all')
 const projectFilter = ref('all')
 const query = ref('')
 const durationSort = ref('desc')
+const groupByFile = ref(false)
 const expanded = ref(new Set())
+const collapsed = ref(new Set())
 
 const projects = computed(() => [...new Set(props.tests.map((test) => test.project).filter(Boolean))])
 
@@ -50,20 +52,62 @@ const visibleTests = computed(() => {
   return matched.sort((a, b) => (a.duration - b.duration) * direction)
 })
 
+const groups = computed(() => {
+  const byFile = new Map()
+
+  for (const test of visibleTests.value) {
+    const file = test.file || 'unknown file'
+    if (!byFile.has(file)) {
+      byFile.set(file, { file, tests: [], duration: 0, failed: 0, flaky: 0, skipped: 0 })
+    }
+
+    const group = byFile.get(file)
+    group.tests.push(test)
+    group.duration += test.duration
+    if (test.status in group) group[test.status] += 1
+  }
+
+  const direction = durationSort.value === 'desc' ? -1 : 1
+  return [...byFile.values()].sort((a, b) => (a.duration - b.duration) * direction)
+})
+
+// One flat list of group headers and test rows keeps the row markup in a single
+// place instead of once per view.
+const rows = computed(() => {
+  if (!groupByFile.value) {
+    return visibleTests.value.map((test) => ({ kind: 'test', key: test.id, test }))
+  }
+
+  return groups.value.flatMap((group) => [
+    { kind: 'group', key: `group:${group.file}`, group },
+    ...(collapsed.value.has(group.file)
+      ? []
+      : group.tests.map((test) => ({ kind: 'test', key: test.id, test })))
+  ])
+})
+
 function toggleDurationSort() {
   durationSort.value = durationSort.value === 'desc' ? 'asc' : 'desc'
 }
 
-function toggleRow(test) {
-  if (!test.error) return
-
-  const next = new Set(expanded.value)
-  if (next.has(test.id)) {
-    next.delete(test.id)
+// Refs are unwrapped in template expressions, so the sets are swapped here and
+// never handed to the template as a ref.
+function withToggled(set, value) {
+  const next = new Set(set)
+  if (next.has(value)) {
+    next.delete(value)
   } else {
-    next.add(test.id)
+    next.add(value)
   }
-  expanded.value = next
+  return next
+}
+
+function toggleGroup(file) {
+  collapsed.value = withToggled(collapsed.value, file)
+}
+
+function toggleRow(test) {
+  if (test.error) expanded.value = withToggled(expanded.value, test.id)
 }
 </script>
 
@@ -84,6 +128,15 @@ function toggleRow(test) {
       </div>
 
       <div class="lookup">
+        <button
+          class="button"
+          :class="{ 'is-active': groupByFile }"
+          type="button"
+          @click="groupByFile = !groupByFile"
+        >
+          Group by file
+        </button>
+
         <select v-if="projects.length > 1" v-model="projectFilter" class="select" aria-label="Filter by project">
           <option value="all">All projects</option>
           <option v-for="project in projects" :key="project" :value="project">{{ project }}</option>
@@ -116,34 +169,56 @@ function toggleRow(test) {
       </thead>
 
       <tbody>
-        <template v-for="test in visibleTests" :key="test.id">
-          <tr :class="{ clickable: !!test.error }" @click="toggleRow(test)">
-            <td class="col-status">
-              <span class="status">
-                <span class="dot" :class="test.status" />
-                {{ test.status }}
+        <template v-for="row in rows" :key="row.key">
+          <tr v-if="row.kind === 'group'" class="group-row" @click="toggleGroup(row.group.file)">
+            <td colspan="4">
+              <span class="group-toggle">{{ collapsed.has(row.group.file) ? '+' : '-' }}</span>
+              <span class="mono">{{ row.group.file }}</span>
+              <span class="group-counts">
+                {{ row.group.tests.length }} tests
+                <span v-if="row.group.failed" class="group-count">
+                  <span class="dot failed" />{{ row.group.failed }}
+                </span>
+                <span v-if="row.group.flaky" class="group-count">
+                  <span class="dot flaky" />{{ row.group.flaky }}
+                </span>
+                <span v-if="row.group.skipped" class="group-count">
+                  <span class="dot skipped" />{{ row.group.skipped }}
+                </span>
               </span>
             </td>
-            <td>
-              <span class="suite">{{ test.suite }}</span>
-              <span class="title mono">{{ test.title }}</span>
-              <span v-if="test.error" class="toggle">
-                {{ expanded.has(test.id) ? 'Hide error' : 'Show error' }}
-              </span>
-            </td>
-            <td class="col-project">{{ test.project || '-' }}</td>
-            <td class="col-attempts">{{ test.attempts }}</td>
-            <td class="col-duration">{{ formatDuration(test.duration) }}</td>
+            <td class="col-duration">{{ formatDuration(row.group.duration) }}</td>
           </tr>
-          <tr v-if="test.error && expanded.has(test.id)" class="error-row">
-            <td colspan="5">
-              <p class="location mono">{{ test.file }}:{{ test.line }}</p>
-              <pre>{{ test.error }}</pre>
-            </td>
-          </tr>
+
+          <template v-else>
+            <tr :class="{ clickable: !!row.test.error }" @click="toggleRow(row.test)">
+              <td class="col-status">
+                <span class="status">
+                  <span class="dot" :class="row.test.status" />
+                  {{ row.test.status }}
+                </span>
+              </td>
+              <td>
+                <span class="suite">{{ row.test.suite }}</span>
+                <span class="title mono">{{ row.test.title }}</span>
+                <span v-if="row.test.error" class="toggle">
+                  {{ expanded.has(row.test.id) ? 'Hide error' : 'Show error' }}
+                </span>
+              </td>
+              <td class="col-project">{{ row.test.project || '-' }}</td>
+              <td class="col-attempts">{{ row.test.attempts }}</td>
+              <td class="col-duration">{{ formatDuration(row.test.duration) }}</td>
+            </tr>
+            <tr v-if="row.test.error && expanded.has(row.test.id)" class="error-row">
+              <td colspan="5">
+                <p class="location mono">{{ row.test.file }}:{{ row.test.line }}</p>
+                <pre>{{ row.test.error }}</pre>
+              </td>
+            </tr>
+          </template>
         </template>
 
-        <tr v-if="!visibleTests.length">
+        <tr v-if="!rows.length">
           <td colspan="5" class="empty">No test matches the current filter.</td>
         </tr>
       </tbody>
@@ -195,7 +270,7 @@ function toggleRow(test) {
 }
 
 .search {
-  width: 260px;
+  width: 230px;
   padding: 5px 9px;
   font: inherit;
   color: inherit;
@@ -235,12 +310,43 @@ tbody tr:last-child td {
   border-bottom: none;
 }
 
-tr.clickable {
+tr.clickable,
+.group-row {
   cursor: pointer;
 }
 
 tr.clickable:hover {
   background: #fafbfb;
+}
+
+.group-row td {
+  background: #f2f5f5;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.group-row:hover td {
+  background: #eaf0f0;
+}
+
+.group-toggle {
+  display: inline-block;
+  width: 12px;
+  color: var(--muted);
+  font-family: var(--mono);
+}
+
+.group-counts {
+  margin-left: 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.group-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
 }
 
 .status {
