@@ -17,6 +17,7 @@ const rows = computed(() => {
   return slowest.map((test) => ({
     id: test.id,
     title: test.title,
+    project: test.project,
     status: test.status,
     tooltip: `${test.suite} > ${test.title}`,
     value: formatDuration(test.duration),
@@ -35,7 +36,10 @@ const rows = computed(() => {
 
     <ol v-if="rows.length" class="rows">
       <li v-for="row in rows" :key="row.id">
-        <span class="name mono" :title="row.tooltip">{{ row.title }}</span>
+        <span class="name" :title="row.tooltip">
+          <span class="mono">{{ row.title }}</span>
+          <span v-if="row.project" class="project">{{ row.project }}</span>
+        </span>
         <svg class="bar" viewBox="0 0 100 10" preserveAspectRatio="none" height="10" aria-hidden="true">
           <rect class="track" x="0" y="0" width="100" height="10" />
           <rect class="fill" :class="row.status" x="0" y="0" :width="row.percent" height="10" />
@@ -83,10 +87,23 @@ header {
 }
 
 .name {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
   overflow: hidden;
   font-size: 12px;
   white-space: nowrap;
+}
+
+.name .mono {
+  overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.project {
+  flex: none;
+  color: var(--muted);
+  font-size: 11px;
 }
 
 .bar {

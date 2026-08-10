@@ -9,27 +9,38 @@ const props = defineProps({
 const STATUSES = ['passed', 'failed', 'flaky', 'skipped', 'unknown']
 
 const statusFilter = ref('all')
+const projectFilter = ref('all')
 const query = ref('')
 const durationSort = ref('desc')
 const expanded = ref(new Set())
+
+const projects = computed(() => [...new Set(props.tests.map((test) => test.project).filter(Boolean))])
+
+// The status counts follow the selected project, otherwise a chip promises rows
+// that the project filter then hides.
+const scopedTests = computed(() =>
+  projectFilter.value === 'all'
+    ? props.tests
+    : props.tests.filter((test) => test.project === projectFilter.value)
+)
 
 const filters = computed(() => {
   const available = STATUSES
     .map((status) => ({
       value: status,
       label: status[0].toUpperCase() + status.slice(1),
-      count: props.tests.filter((test) => test.status === status).length
+      count: scopedTests.value.filter((test) => test.status === status).length
     }))
     // "unknown" only shows up for reports with statuses this viewer does not map.
     .filter((filter) => filter.value !== 'unknown' || filter.count > 0)
 
-  return [{ value: 'all', label: 'All', count: props.tests.length }, ...available]
+  return [{ value: 'all', label: 'All', count: scopedTests.value.length }, ...available]
 })
 
 const visibleTests = computed(() => {
   const term = query.value.trim().toLowerCase()
 
-  const matched = props.tests.filter((test) => {
+  const matched = scopedTests.value.filter((test) => {
     if (statusFilter.value !== 'all' && test.status !== statusFilter.value) return false
     if (!term) return true
     return `${test.suite} ${test.title} ${test.project}`.toLowerCase().includes(term)
@@ -72,13 +83,20 @@ function toggleRow(test) {
         </button>
       </div>
 
-      <input
-        v-model="query"
-        class="search"
-        type="search"
-        placeholder="Filter by suite or test name"
-        aria-label="Filter by suite or test name"
-      >
+      <div class="lookup">
+        <select v-if="projects.length > 1" v-model="projectFilter" class="select" aria-label="Filter by project">
+          <option value="all">All projects</option>
+          <option v-for="project in projects" :key="project" :value="project">{{ project }}</option>
+        </select>
+
+        <input
+          v-model="query"
+          class="search"
+          type="search"
+          placeholder="Filter by suite or test name"
+          aria-label="Filter by suite or test name"
+        >
+      </div>
     </div>
 
     <table>
@@ -160,6 +178,20 @@ function toggleRow(test) {
 
 .button.is-active .count {
   color: inherit;
+}
+
+.lookup {
+  display: flex;
+  gap: 6px;
+}
+
+.select {
+  padding: 5px 6px;
+  font: inherit;
+  color: inherit;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 3px;
 }
 
 .search {
@@ -308,6 +340,10 @@ th.col-duration {
   .controls {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .lookup {
+    flex-direction: column;
   }
 
   .search {
