@@ -1,6 +1,7 @@
 <script setup>
 import ReportSource from './components/ReportSource.vue'
 import SummaryCards from './components/SummaryCards.vue'
+import SlowestTests from './components/SlowestTests.vue'
 import TestTable from './components/TestTable.vue'
 import { useReport } from './composables/useReport.js'
 
@@ -27,6 +28,7 @@ loadSample()
 
     <template v-if="tests.length">
       <SummaryCards :summary="summary" />
+      <SlowestTests :tests="tests" />
       <TestTable :tests="tests" />
     </template>
 
