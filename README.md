@@ -17,6 +17,15 @@ To get a JSON report out of Playwright:
 PLAYWRIGHT_JSON_OUTPUT_NAME=results.json npx playwright test --reporter=json
 ```
 
+Lint and unit tests:
+
+```
+npm run lint
+npm test
+```
+
+The tests cover the normalizer, which is where a wrong report is turned into wrong numbers: nested suites, retries, flaky detection, unknown statuses and missing fields.
+
 ## What it shows
 
 - Counts for passed, failed, flaky and skipped plus the wall clock duration of the run

@@ -32,7 +32,7 @@ function formatStart(value) {
     <div class="actions">
       <button class="button" type="button" @click="fileInput.click()">Open results.json</button>
       <button class="button" type="button" @click="emit('sample')">Load sample</button>
-      <input ref="fileInput" type="file" accept=".json,application/json" hidden @change="onChange" />
+      <input ref="fileInput" type="file" accept=".json,application/json" hidden @change="onChange">
     </div>
   </div>
 </template>
