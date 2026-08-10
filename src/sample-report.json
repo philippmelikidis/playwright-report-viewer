@@ -18,7 +18,8 @@
       ]
     ],
     "retries": 2,
-    "workers": 4,
+    "shard": null,
+    "workers": 6,
     "version": "1.49.1",
     "projects": [
       {
@@ -27,7 +28,34 @@
         "retries": 2,
         "id": "chromium",
         "name": "chromium",
-        "testDir": "/home/philipp/work/shop-e2e/tests",
+        "testDir": "/home/philipp/work/shop-e2e/tests/ui",
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/home/philipp/work/shop-e2e/test-results",
+        "repeatEach": 1,
+        "retries": 2,
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/home/philipp/work/shop-e2e/tests/ui",
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/home/philipp/work/shop-e2e/test-results",
+        "repeatEach": 1,
+        "retries": 2,
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/home/philipp/work/shop-e2e/tests/ui",
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/home/philipp/work/shop-e2e/test-results",
+        "repeatEach": 1,
+        "retries": 2,
+        "id": "api",
+        "name": "api",
+        "testDir": "/home/philipp/work/shop-e2e/tests/api",
         "timeout": 30000
       }
     ]
@@ -62,12 +90,58 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1842,
+                      "duration": 1829,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:12.621Z",
+                      "startTime": "2026-05-14T08:41:12.551Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2168,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:12.822Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2372,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:13.116Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -93,15 +167,61 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 612,
+                      "duration": 645,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:12.748Z",
+                      "startTime": "2026-05-14T08:41:13.218Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 746,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:13.331Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 839,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:13.454Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -127,15 +247,61 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1104,
+                      "duration": 1053,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:12.946Z",
+                      "startTime": "2026-05-14T08:41:13.601Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1358,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:13.782Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1539,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:13.983Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -161,73 +327,119 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 2016,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:14.237Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
                       "status": "timedOut",
-                      "duration": 30412,
+                      "duration": 29959,
                       "errors": [
                         {
                           "message": "Timed out 30000ms waiting for expect(locator).toBeVisible()\n\nLocator: getByTestId('account-locked-notice')\nExpected: visible\nReceived: hidden\n\nCall log:\n  - expect.toBeVisible with timeout 30000ms\n  - waiting for getByTestId('account-locked-notice')",
-                          "stack": "Error: Timed out 30000ms waiting for expect(locator).toBeVisible()\n    at /home/philipp/work/shop-e2e/tests/auth.spec.ts:74:52"
+                          "stack": "Error: Timed out 30000ms waiting for expect(locator).toBeVisible()\n    at tests/auth.spec.ts:74:52"
                         }
                       ],
                       "error": {
                         "message": "Timed out 30000ms waiting for expect(locator).toBeVisible()\n\nLocator: getByTestId('account-locked-notice')\nExpected: visible\nReceived: hidden\n\nCall log:\n  - expect.toBeVisible with timeout 30000ms\n  - waiting for getByTestId('account-locked-notice')",
-                        "stack": "Error: Timed out 30000ms waiting for expect(locator).toBeVisible()\n    at /home/philipp/work/shop-e2e/tests/auth.spec.ts:74:52"
+                        "stack": "Error: Timed out 30000ms waiting for expect(locator).toBeVisible()\n    at tests/auth.spec.ts:74:52"
                       },
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:17.331Z",
+                      "startTime": "2026-05-14T08:41:17.596Z",
                       "attachments": [],
                       "annotations": []
                     },
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
                       "status": "timedOut",
-                      "duration": 30288,
+                      "duration": 30286,
                       "errors": [
                         {
                           "message": "Timed out 30000ms waiting for expect(locator).toBeVisible()\n\nLocator: getByTestId('account-locked-notice')\nExpected: visible\nReceived: hidden\n\nCall log:\n  - expect.toBeVisible with timeout 30000ms\n  - waiting for getByTestId('account-locked-notice')",
-                          "stack": "Error: Timed out 30000ms waiting for expect(locator).toBeVisible()\n    at /home/philipp/work/shop-e2e/tests/auth.spec.ts:74:52"
+                          "stack": "Error: Timed out 30000ms waiting for expect(locator).toBeVisible()\n    at tests/auth.spec.ts:74:52"
                         }
                       ],
                       "error": {
                         "message": "Timed out 30000ms waiting for expect(locator).toBeVisible()\n\nLocator: getByTestId('account-locked-notice')\nExpected: visible\nReceived: hidden\n\nCall log:\n  - expect.toBeVisible with timeout 30000ms\n  - waiting for getByTestId('account-locked-notice')",
-                        "stack": "Error: Timed out 30000ms waiting for expect(locator).toBeVisible()\n    at /home/philipp/work/shop-e2e/tests/auth.spec.ts:74:52"
+                        "stack": "Error: Timed out 30000ms waiting for expect(locator).toBeVisible()\n    at tests/auth.spec.ts:74:52"
                       },
                       "stdout": [],
                       "stderr": [],
                       "retry": 1,
-                      "startTime": "2026-05-14T08:41:21.698Z",
+                      "startTime": "2026-05-14T08:41:20.991Z",
                       "attachments": [],
                       "annotations": []
                     },
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
                       "status": "timedOut",
-                      "duration": 30355,
+                      "duration": 30096,
                       "errors": [
                         {
                           "message": "Timed out 30000ms waiting for expect(locator).toBeVisible()\n\nLocator: getByTestId('account-locked-notice')\nExpected: visible\nReceived: hidden\n\nCall log:\n  - expect.toBeVisible with timeout 30000ms\n  - waiting for getByTestId('account-locked-notice')",
-                          "stack": "Error: Timed out 30000ms waiting for expect(locator).toBeVisible()\n    at /home/philipp/work/shop-e2e/tests/auth.spec.ts:74:52"
+                          "stack": "Error: Timed out 30000ms waiting for expect(locator).toBeVisible()\n    at tests/auth.spec.ts:74:52"
                         }
                       ],
                       "error": {
                         "message": "Timed out 30000ms waiting for expect(locator).toBeVisible()\n\nLocator: getByTestId('account-locked-notice')\nExpected: visible\nReceived: hidden\n\nCall log:\n  - expect.toBeVisible with timeout 30000ms\n  - waiting for getByTestId('account-locked-notice')",
-                        "stack": "Error: Timed out 30000ms waiting for expect(locator).toBeVisible()\n    at /home/philipp/work/shop-e2e/tests/auth.spec.ts:74:52"
+                        "stack": "Error: Timed out 30000ms waiting for expect(locator).toBeVisible()\n    at tests/auth.spec.ts:74:52"
                       },
                       "stdout": [],
                       "stderr": [],
                       "retry": 2,
-                      "startTime": "2026-05-14T08:41:26.074Z",
+                      "startTime": "2026-05-14T08:41:24.365Z",
                       "attachments": [],
                       "annotations": []
                     }
                   ],
                   "status": "unexpected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2794,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:24.705Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
               "id": "auth-4",
@@ -251,21 +463,21 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "failed",
-                      "duration": 5218,
+                      "duration": 5001,
                       "errors": [
                         {
-                          "message": "Timed out 5000ms waiting for expect(page).toHaveURL(expected)\n\nExpected pattern: /\\/reports\\/weekly/\nReceived string: \"http://127.0.0.1:3000/dashboard\"",
-                          "stack": "Error: Timed out 5000ms waiting for expect(page).toHaveURL(expected)\n    at /home/philipp/work/shop-e2e/tests/auth.spec.ts:52:24"
+                          "message": "Timed out 5000ms waiting for expect(page).toHaveURL(expected)\n\nExpected pattern: /\\/orders\\/recent/\nReceived string: \"http://127.0.0.1:3000/dashboard\"",
+                          "stack": "Error: Timed out 5000ms waiting for expect(page).toHaveURL(expected)\n    at tests/auth.spec.ts:52:24"
                         }
                       ],
                       "error": {
-                        "message": "Timed out 5000ms waiting for expect(page).toHaveURL(expected)\n\nExpected pattern: /\\/reports\\/weekly/\nReceived string: \"http://127.0.0.1:3000/dashboard\"",
-                        "stack": "Error: Timed out 5000ms waiting for expect(page).toHaveURL(expected)\n    at /home/philipp/work/shop-e2e/tests/auth.spec.ts:52:24"
+                        "message": "Timed out 5000ms waiting for expect(page).toHaveURL(expected)\n\nExpected pattern: /\\/orders\\/recent/\nReceived string: \"http://127.0.0.1:3000/dashboard\"",
+                        "stack": "Error: Timed out 5000ms waiting for expect(page).toHaveURL(expected)\n    at tests/auth.spec.ts:52:24"
                       },
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:26.859Z",
+                      "startTime": "2026-05-14T08:41:25.291Z",
                       "attachments": [],
                       "annotations": []
                     },
@@ -273,12 +485,80 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1932,
+                      "duration": 1949,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 1,
-                      "startTime": "2026-05-14T08:41:27.175Z",
+                      "startTime": "2026-05-14T08:41:25.538Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "flaky"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2321,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:25.826Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 6651,
+                      "errors": [
+                        {
+                          "message": "Timed out 5000ms waiting for expect(page).toHaveURL(expected)\n\nExpected pattern: /\\/orders\\/recent/\nReceived string: \"http://127.0.0.1:3000/dashboard\"",
+                          "stack": "Error: Timed out 5000ms waiting for expect(page).toHaveURL(expected)\n    at tests/auth.spec.ts:52:24"
+                        }
+                      ],
+                      "error": {
+                        "message": "Timed out 5000ms waiting for expect(page).toHaveURL(expected)\n\nExpected pattern: /\\/orders\\/recent/\nReceived string: \"http://127.0.0.1:3000/dashboard\"",
+                        "stack": "Error: Timed out 5000ms waiting for expect(page).toHaveURL(expected)\n    at tests/auth.spec.ts:52:24"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:26.595Z",
+                      "attachments": [],
+                      "annotations": []
+                    },
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2600,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-05-14T08:41:26.914Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -312,15 +592,61 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 2260,
+                      "duration": 2136,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:27.538Z",
+                      "startTime": "2026-05-14T08:41:27.181Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 2595,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:27.499Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3141,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:27.878Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -346,15 +672,61 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1490,
+                      "duration": 1463,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:27.791Z",
+                      "startTime": "2026-05-14T08:41:28.071Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1802,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:28.301Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1938,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:28.546Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -376,13 +748,69 @@
                   "timeout": 30000,
                   "annotations": [
                     {
-                      "type": "skip",
-                      "description": "pending mail sandbox"
+                      "type": "fixme",
+                      "description": "waiting for the mail sandbox"
                     }
                   ],
                   "expectedStatus": "skipped",
                   "projectId": "chromium",
                   "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:28.576Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "fixme",
+                      "description": "waiting for the mail sandbox"
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:28.606Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "fixme",
+                      "description": "waiting for the mail sandbox"
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
                   "results": [
                     {
                       "workerIndex": 0,
@@ -393,7 +821,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:27.831Z",
+                      "startTime": "2026-05-14T08:41:28.636Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -439,12 +867,58 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1320,
+                      "duration": 1248,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:28.060Z",
+                      "startTime": "2026-05-14T08:41:28.805Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1643,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:29.018Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1697,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:29.237Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -470,15 +944,61 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 1755,
+                      "duration": 1812,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:28.351Z",
+                      "startTime": "2026-05-14T08:41:29.468Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 1955,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:29.715Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2381,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:30.010Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -504,15 +1024,61 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1608,
+                      "duration": 1689,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:28.621Z",
+                      "startTime": "2026-05-14T08:41:30.228Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1937,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:30.473Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2088,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:30.735Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -538,46 +1104,176 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
                       "status": "failed",
-                      "duration": 5361,
+                      "duration": 5390,
                       "errors": [
                         {
                           "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
-                          "stack": "Error: expect(locator).toHaveText(expected)\n    at /home/philipp/work/shop-e2e/tests/checkout.spec.ts:96:41"
+                          "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/checkout.spec.ts:96:41"
                         }
                       ],
                       "error": {
                         "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
-                        "stack": "Error: expect(locator).toHaveText(expected)\n    at /home/philipp/work/shop-e2e/tests/checkout.spec.ts:96:41"
+                        "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/checkout.spec.ts:96:41"
                       },
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:29.427Z",
+                      "startTime": "2026-05-14T08:41:31.364Z",
                       "attachments": [],
                       "annotations": []
                     },
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
                       "status": "failed",
-                      "duration": 5297,
+                      "duration": 5452,
                       "errors": [
                         {
                           "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
-                          "stack": "Error: expect(locator).toHaveText(expected)\n    at /home/philipp/work/shop-e2e/tests/checkout.spec.ts:96:41"
+                          "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/checkout.spec.ts:96:41"
                         }
                       ],
                       "error": {
                         "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
-                        "stack": "Error: expect(locator).toHaveText(expected)\n    at /home/philipp/work/shop-e2e/tests/checkout.spec.ts:96:41"
+                        "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/checkout.spec.ts:96:41"
                       },
                       "stdout": [],
                       "stderr": [],
                       "retry": 1,
-                      "startTime": "2026-05-14T08:41:30.224Z",
+                      "startTime": "2026-05-14T08:41:32.000Z",
+                      "attachments": [],
+                      "annotations": []
+                    },
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "failed",
+                      "duration": 5387,
+                      "errors": [
+                        {
+                          "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
+                          "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/checkout.spec.ts:96:41"
+                        }
+                      ],
+                      "error": {
+                        "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
+                        "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/checkout.spec.ts:96:41"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-05-14T08:41:32.629Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "unexpected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "failed",
+                      "duration": 6313,
+                      "errors": [
+                        {
+                          "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
+                          "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/checkout.spec.ts:96:41"
+                        }
+                      ],
+                      "error": {
+                        "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
+                        "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/checkout.spec.ts:96:41"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:33.360Z",
+                      "attachments": [],
+                      "annotations": []
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "failed",
+                      "duration": 6443,
+                      "errors": [
+                        {
+                          "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
+                          "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/checkout.spec.ts:96:41"
+                        }
+                      ],
+                      "error": {
+                        "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
+                        "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/checkout.spec.ts:96:41"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-05-14T08:41:34.106Z",
+                      "attachments": [],
+                      "annotations": []
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "failed",
+                      "duration": 6371,
+                      "errors": [
+                        {
+                          "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
+                          "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/checkout.spec.ts:96:41"
+                        }
+                      ],
+                      "error": {
+                        "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
+                        "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/checkout.spec.ts:96:41"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-05-14T08:41:34.844Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "unexpected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 7317,
+                      "errors": [
+                        {
+                          "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
+                          "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/checkout.spec.ts:96:41"
+                        }
+                      ],
+                      "error": {
+                        "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
+                        "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/checkout.spec.ts:96:41"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:35.687Z",
                       "attachments": [],
                       "annotations": []
                     },
@@ -585,21 +1281,43 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 5344,
+                      "duration": 7311,
                       "errors": [
                         {
                           "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
-                          "stack": "Error: expect(locator).toHaveText(expected)\n    at /home/philipp/work/shop-e2e/tests/checkout.spec.ts:96:41"
+                          "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/checkout.spec.ts:96:41"
                         }
                       ],
                       "error": {
                         "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
-                        "stack": "Error: expect(locator).toHaveText(expected)\n    at /home/philipp/work/shop-e2e/tests/checkout.spec.ts:96:41"
+                        "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/checkout.spec.ts:96:41"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-05-14T08:41:36.529Z",
+                      "attachments": [],
+                      "annotations": []
+                    },
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 7276,
+                      "errors": [
+                        {
+                          "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
+                          "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/checkout.spec.ts:96:41"
+                        }
+                      ],
+                      "error": {
+                        "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('cart-total')\nExpected string: \"Total: 49.90 EUR\"\nReceived string: \"Total: 59.90 EUR\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - waiting for getByTestId('cart-total')\n  - locator resolved to <span data-testid=\"cart-total\">Total: 59.90 EUR</span>",
+                        "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/checkout.spec.ts:96:41"
                       },
                       "stdout": [],
                       "stderr": [],
                       "retry": 2,
-                      "startTime": "2026-05-14T08:41:31.027Z",
+                      "startTime": "2026-05-14T08:41:37.367Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -628,12 +1346,58 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 2915,
+                      "duration": 2954,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:31.483Z",
+                      "startTime": "2026-05-14T08:41:37.725Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 3473,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:38.141Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 4022,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:38.618Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -667,15 +1431,61 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 4380,
+                      "duration": 4454,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:32.149Z",
+                      "startTime": "2026-05-14T08:41:39.143Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 4863,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:39.713Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5906,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:40.399Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -701,15 +1511,61 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 3120,
+                      "duration": 3151,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:32.635Z",
+                      "startTime": "2026-05-14T08:41:40.779Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 3791,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:41.230Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 4308,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:41.739Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -735,42 +1591,88 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 3909,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:42.203Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
                       "status": "failed",
-                      "duration": 10344,
+                      "duration": 11938,
                       "errors": [
                         {
                           "message": "page.waitForResponse: Timeout 10000ms exceeded while waiting for event \"response\"\n\nCall log:\n  - waiting for response \"**/payment/authorize\"",
-                          "stack": "Error: page.waitForResponse: Timeout 10000ms exceeded while waiting for event \"response\"\n    at /home/philipp/work/shop-e2e/tests/checkout.spec.ts:141:20"
+                          "stack": "Error: page.waitForResponse: Timeout 10000ms exceeded while waiting for event \"response\"\n    at tests/checkout.spec.ts:141:20"
                         }
                       ],
                       "error": {
                         "message": "page.waitForResponse: Timeout 10000ms exceeded while waiting for event \"response\"\n\nCall log:\n  - waiting for response \"**/payment/authorize\"",
-                        "stack": "Error: page.waitForResponse: Timeout 10000ms exceeded while waiting for event \"response\"\n    at /home/philipp/work/shop-e2e/tests/checkout.spec.ts:141:20"
+                        "stack": "Error: page.waitForResponse: Timeout 10000ms exceeded while waiting for event \"response\"\n    at tests/checkout.spec.ts:141:20"
                       },
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:34.153Z",
+                      "startTime": "2026-05-14T08:41:43.559Z",
                       "attachments": [],
                       "annotations": []
                     },
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
                       "status": "passed",
-                      "duration": 3877,
+                      "duration": 4671,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 1,
-                      "startTime": "2026-05-14T08:41:34.747Z",
+                      "startTime": "2026-05-14T08:41:44.108Z",
                       "attachments": [],
                       "annotations": []
                     }
                   ],
                   "status": "flaky"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5041,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:44.698Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
               "id": "checkout-16",
@@ -787,8 +1689,8 @@
                   "timeout": 30000,
                   "annotations": [
                     {
-                      "type": "skip",
-                      "description": "pending mail sandbox"
+                      "type": "fixme",
+                      "description": "waiting for the mail sandbox"
                     }
                   ],
                   "expectedStatus": "skipped",
@@ -804,7 +1706,63 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:34.787Z",
+                      "startTime": "2026-05-14T08:41:44.728Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "fixme",
+                      "description": "waiting for the mail sandbox"
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:44.758Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "fixme",
+                      "description": "waiting for the mail sandbox"
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:44.788Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -830,15 +1788,61 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 9840,
+                      "duration": 10319,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:36.233Z",
+                      "startTime": "2026-05-14T08:41:45.965Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 11909,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:47.318Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 13480,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:48.846Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -849,6 +1853,1611 @@
               "id": "checkout-18",
               "file": "checkout.spec.ts",
               "line": 146,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "catalog.spec.ts",
+      "file": "catalog.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "product list",
+          "file": "catalog.spec.ts",
+          "line": 7,
+          "column": 3,
+          "specs": [
+            {
+              "title": "renders the first page of products",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1459,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:49.038Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1595,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:49.245Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1852,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:49.481Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "catalog-19",
+              "file": "catalog.spec.ts",
+              "line": 11,
+              "column": 5
+            },
+            {
+              "title": "shows the empty state when nothing matches",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 923,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:49.614Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 1210,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:49.778Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1338,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:49.957Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "catalog-20",
+              "file": "catalog.spec.ts",
+              "line": 22,
+              "column": 5
+            },
+            {
+              "title": "opens the product detail from a card",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1653,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:50.171Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1943,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:50.417Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2223,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:50.694Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "catalog-21",
+              "file": "catalog.spec.ts",
+              "line": 31,
+              "column": 5
+            },
+            {
+              "title": "lazy loads the next page on scroll",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 3158,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:51.075Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 3869,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:51.535Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4395,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:52.053Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "catalog-22",
+              "file": "catalog.spec.ts",
+              "line": 44,
+              "column": 5
+            }
+          ]
+        },
+        {
+          "title": "filters",
+          "file": "catalog.spec.ts",
+          "line": 56,
+          "column": 3,
+          "specs": [
+            {
+              "title": "narrows the list by category",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1202,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:52.217Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1316,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:52.393Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1654,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:52.607Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "catalog-23",
+              "file": "catalog.spec.ts",
+              "line": 60,
+              "column": 5
+            },
+            {
+              "title": "combines category and price filter",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 1583,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:52.813Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 1844,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:53.048Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1973,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:53.297Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "catalog-24",
+              "file": "catalog.spec.ts",
+              "line": 72,
+              "column": 5
+            },
+            {
+              "title": "keeps the filter after a reload",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1364,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:53.479Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1620,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:53.689Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 1814,
+                      "errors": [
+                        {
+                          "message": "expect(locator).toHaveCount(expected)\n\nLocator: getByTestId('product-card')\nExpected: 12\nReceived: 40\n\nCall log:\n  - expect.toHaveCount with timeout 5000ms\n  - waiting for getByTestId('product-card')",
+                          "stack": "Error: expect(locator).toHaveCount(expected)\n    at tests/catalog.spec.ts:97:44"
+                        }
+                      ],
+                      "error": {
+                        "message": "expect(locator).toHaveCount(expected)\n\nLocator: getByTestId('product-card')\nExpected: 12\nReceived: 40\n\nCall log:\n  - expect.toHaveCount with timeout 5000ms\n  - waiting for getByTestId('product-card')",
+                        "stack": "Error: expect(locator).toHaveCount(expected)\n    at tests/catalog.spec.ts:97:44"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:53.921Z",
+                      "attachments": [],
+                      "annotations": []
+                    },
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 1826,
+                      "errors": [
+                        {
+                          "message": "expect(locator).toHaveCount(expected)\n\nLocator: getByTestId('product-card')\nExpected: 12\nReceived: 40\n\nCall log:\n  - expect.toHaveCount with timeout 5000ms\n  - waiting for getByTestId('product-card')",
+                          "stack": "Error: expect(locator).toHaveCount(expected)\n    at tests/catalog.spec.ts:97:44"
+                        }
+                      ],
+                      "error": {
+                        "message": "expect(locator).toHaveCount(expected)\n\nLocator: getByTestId('product-card')\nExpected: 12\nReceived: 40\n\nCall log:\n  - expect.toHaveCount with timeout 5000ms\n  - waiting for getByTestId('product-card')",
+                        "stack": "Error: expect(locator).toHaveCount(expected)\n    at tests/catalog.spec.ts:97:44"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-05-14T08:41:54.154Z",
+                      "attachments": [],
+                      "annotations": []
+                    },
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 1787,
+                      "errors": [
+                        {
+                          "message": "expect(locator).toHaveCount(expected)\n\nLocator: getByTestId('product-card')\nExpected: 12\nReceived: 40\n\nCall log:\n  - expect.toHaveCount with timeout 5000ms\n  - waiting for getByTestId('product-card')",
+                          "stack": "Error: expect(locator).toHaveCount(expected)\n    at tests/catalog.spec.ts:97:44"
+                        }
+                      ],
+                      "error": {
+                        "message": "expect(locator).toHaveCount(expected)\n\nLocator: getByTestId('product-card')\nExpected: 12\nReceived: 40\n\nCall log:\n  - expect.toHaveCount with timeout 5000ms\n  - waiting for getByTestId('product-card')",
+                        "stack": "Error: expect(locator).toHaveCount(expected)\n    at tests/catalog.spec.ts:97:44"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-05-14T08:41:54.383Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "catalog-25",
+              "file": "catalog.spec.ts",
+              "line": 85,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "account.spec.ts",
+      "file": "account.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "profile",
+          "file": "account.spec.ts",
+          "line": 6,
+          "column": 3,
+          "specs": [
+            {
+              "title": "saves a new display name",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 1327,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:54.560Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 1421,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:54.748Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1599,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:54.956Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "account-26",
+              "file": "account.spec.ts",
+              "line": 10,
+              "column": 5
+            },
+            {
+              "title": "rejects an invalid email",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 716,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:55.066Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 806,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:55.186Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 960,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:55.323Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "account-27",
+              "file": "account.spec.ts",
+              "line": 20,
+              "column": 5
+            },
+            {
+              "title": "shows a hint when the password is too short",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 698,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:55.431Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 837,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:55.554Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 901,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:55.684Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "account-28",
+              "file": "account.spec.ts",
+              "line": 29,
+              "column": 5
+            }
+          ]
+        },
+        {
+          "title": "addresses",
+          "file": "account.spec.ts",
+          "line": 40,
+          "column": 3,
+          "specs": [
+            {
+              "title": "adds a delivery address",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1962,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:55.932Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2302,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:56.218Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2582,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:56.535Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "account-29",
+              "file": "account.spec.ts",
+              "line": 44,
+              "column": 5
+            },
+            {
+              "title": "deletes an address after confirmation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 1679,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:56.752Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 1868,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:56.990Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2285,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:57.274Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "account-30",
+              "file": "account.spec.ts",
+              "line": 58,
+              "column": 5
+            },
+            {
+              "title": "exports the account data",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "fixme",
+                      "description": "waiting for the mail sandbox"
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:57.304Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "fixme",
+                      "description": "waiting for the mail sandbox"
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:57.334Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "skipped"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "fixme",
+                      "description": "waiting for the mail sandbox"
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:57.364Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "account-31",
+              "file": "account.spec.ts",
+              "line": 70,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "navigation.spec.ts",
+      "file": "navigation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "routing",
+          "file": "navigation.spec.ts",
+          "line": 5,
+          "column": 3,
+          "specs": [
+            {
+              "title": "deep link to a product opens the detail view",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 1108,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:57.517Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 1337,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:57.696Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1458,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:57.888Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "navigation-32",
+              "file": "navigation.spec.ts",
+              "line": 9,
+              "column": 5
+            },
+            {
+              "title": "unknown route renders the not found view",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 602,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:57.985Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 750,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:58.098Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 852,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:58.223Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "navigation-33",
+              "file": "navigation.spec.ts",
+              "line": 19,
+              "column": 5
+            },
+            {
+              "title": "keeps the query string when switching tabs",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 893,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:58.352Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 1073,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:58.501Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1133,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:58.657Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "navigation-34",
+              "file": "navigation.spec.ts",
+              "line": 28,
+              "column": 5
+            }
+          ]
+        },
+        {
+          "title": "history",
+          "file": "navigation.spec.ts",
+          "line": 38,
+          "column": 3,
+          "specs": [
+            {
+              "title": "back button returns to the filtered list",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1495,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:58.853Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1788,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:59.082Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 5035,
+                      "errors": [
+                        {
+                          "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('filter-summary')\nExpected string: \"Category: Shoes\"\nReceived string: \"\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - locator resolved to <p data-testid=\"filter-summary\"></p>",
+                          "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/navigation.spec.ts:61:38"
+                        }
+                      ],
+                      "error": {
+                        "message": "expect(locator).toHaveText(expected)\n\nLocator: getByTestId('filter-summary')\nExpected string: \"Category: Shoes\"\nReceived string: \"\"\n\nCall log:\n  - expect.toHaveText with timeout 5000ms\n  - locator resolved to <p data-testid=\"filter-summary\"></p>",
+                        "stack": "Error: expect(locator).toHaveText(expected)\n    at tests/navigation.spec.ts:61:38"
+                      },
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:41:59.671Z",
+                      "attachments": [],
+                      "annotations": []
+                    },
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1891,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-05-14T08:41:59.911Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "flaky"
+                }
+              ],
+              "id": "navigation-35",
+              "file": "navigation.spec.ts",
+              "line": 42,
+              "column": 5
+            },
+            {
+              "title": "forward button restores the detail view",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 1371,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:42:00.093Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 1595,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:42:00.300Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                },
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1823,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:42:00.533Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "navigation-36",
+              "file": "navigation.spec.ts",
+              "line": 55,
               "column": 5
             }
           ]
@@ -877,19 +3486,19 @@
                   "timeout": 30000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
+                  "projectId": "api",
+                  "projectName": "api",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 380,
+                      "duration": 382,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:36.327Z",
+                      "startTime": "2026-05-14T08:42:00.605Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -897,7 +3506,7 @@
                   "status": "expected"
                 }
               ],
-              "id": "api-19",
+              "id": "api-37",
               "file": "api.spec.ts",
               "line": 9,
               "column": 5
@@ -911,19 +3520,19 @@
                   "timeout": 30000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
+                  "projectId": "api",
+                  "projectName": "api",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 455,
+                      "duration": 469,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:36.432Z",
+                      "startTime": "2026-05-14T08:42:00.687Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -931,7 +3540,7 @@
                   "status": "expected"
                 }
               ],
-              "id": "api-20",
+              "id": "api-38",
               "file": "api.spec.ts",
               "line": 18,
               "column": 5
@@ -945,19 +3554,19 @@
                   "timeout": 30000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
+                  "projectId": "api",
+                  "projectName": "api",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 240,
+                      "duration": 235,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:36.506Z",
+                      "startTime": "2026-05-14T08:42:00.743Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -965,7 +3574,7 @@
                   "status": "expected"
                 }
               ],
-              "id": "api-21",
+              "id": "api-39",
               "file": "api.spec.ts",
               "line": 28,
               "column": 5
@@ -979,19 +3588,19 @@
                   "timeout": 30000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
+                  "projectId": "api",
+                  "projectName": "api",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 512,
+                      "duration": 498,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:36.619Z",
+                      "startTime": "2026-05-14T08:42:00.828Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -999,9 +3608,77 @@
                   "status": "expected"
                 }
               ],
-              "id": "api-22",
+              "id": "api-40",
               "file": "api.spec.ts",
               "line": 36,
+              "column": 5
+            },
+            {
+              "title": "GET /products sorts by price",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 489,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:42:00.912Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "api-41",
+              "file": "api.spec.ts",
+              "line": 45,
+              "column": 5
+            },
+            {
+              "title": "GET /products rejects an invalid page parameter",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 244,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:42:00.969Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "api-42",
+              "file": "api.spec.ts",
+              "line": 54,
               "column": 5
             }
           ]
@@ -1009,7 +3686,7 @@
         {
           "title": "orders",
           "file": "api.spec.ts",
-          "line": 48,
+          "line": 66,
           "column": 3,
           "specs": [
             {
@@ -1021,19 +3698,19 @@
                   "timeout": 30000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
+                  "projectId": "api",
+                  "projectName": "api",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 690,
+                      "duration": 663,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:36.758Z",
+                      "startTime": "2026-05-14T08:42:01.073Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -1041,9 +3718,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "api-23",
+              "id": "api-43",
               "file": "api.spec.ts",
-              "line": 52,
+              "line": 70,
               "column": 5
             },
             {
@@ -1055,19 +3732,19 @@
                   "timeout": 30000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
+                  "projectId": "api",
+                  "projectName": "api",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 305,
+                      "duration": 295,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:36.842Z",
+                      "startTime": "2026-05-14T08:42:01.136Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -1075,9 +3752,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "api-24",
+              "id": "api-44",
               "file": "api.spec.ts",
-              "line": 63,
+              "line": 81,
               "column": 5
             },
             {
@@ -1089,72 +3766,72 @@
                   "timeout": 30000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
+                  "projectId": "api",
+                  "projectName": "api",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 1208,
+                      "duration": 1220,
                       "errors": [
                         {
                           "message": "apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n\nCall log:\n  - → GET http://127.0.0.1:4010/orders/8842\n  - connect ECONNREFUSED 127.0.0.1:4010",
-                          "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n    at /home/philipp/work/shop-e2e/tests/api.spec.ts:118:30"
+                          "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n    at tests/api.spec.ts:118:30"
                         }
                       ],
                       "error": {
                         "message": "apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n\nCall log:\n  - → GET http://127.0.0.1:4010/orders/8842\n  - connect ECONNREFUSED 127.0.0.1:4010",
-                        "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n    at /home/philipp/work/shop-e2e/tests/api.spec.ts:118:30"
+                        "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n    at tests/api.spec.ts:118:30"
                       },
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-14T08:41:37.055Z",
+                      "startTime": "2026-05-14T08:42:01.302Z",
                       "attachments": [],
                       "annotations": []
                     },
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 1174,
+                      "duration": 1212,
                       "errors": [
                         {
                           "message": "apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n\nCall log:\n  - → GET http://127.0.0.1:4010/orders/8842\n  - connect ECONNREFUSED 127.0.0.1:4010",
-                          "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n    at /home/philipp/work/shop-e2e/tests/api.spec.ts:118:30"
+                          "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n    at tests/api.spec.ts:118:30"
                         }
                       ],
                       "error": {
                         "message": "apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n\nCall log:\n  - → GET http://127.0.0.1:4010/orders/8842\n  - connect ECONNREFUSED 127.0.0.1:4010",
-                        "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n    at /home/philipp/work/shop-e2e/tests/api.spec.ts:118:30"
+                        "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n    at tests/api.spec.ts:118:30"
                       },
                       "stdout": [],
                       "stderr": [],
                       "retry": 1,
-                      "startTime": "2026-05-14T08:41:37.263Z",
+                      "startTime": "2026-05-14T08:42:01.467Z",
                       "attachments": [],
                       "annotations": []
                     },
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
                       "status": "failed",
-                      "duration": 1191,
+                      "duration": 1211,
                       "errors": [
                         {
                           "message": "apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n\nCall log:\n  - → GET http://127.0.0.1:4010/orders/8842\n  - connect ECONNREFUSED 127.0.0.1:4010",
-                          "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n    at /home/philipp/work/shop-e2e/tests/api.spec.ts:118:30"
+                          "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n    at tests/api.spec.ts:118:30"
                         }
                       ],
                       "error": {
                         "message": "apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n\nCall log:\n  - → GET http://127.0.0.1:4010/orders/8842\n  - connect ECONNREFUSED 127.0.0.1:4010",
-                        "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n    at /home/philipp/work/shop-e2e/tests/api.spec.ts:118:30"
+                        "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:4010\n    at tests/api.spec.ts:118:30"
                       },
                       "stdout": [],
                       "stderr": [],
                       "retry": 2,
-                      "startTime": "2026-05-14T08:41:37.473Z",
+                      "startTime": "2026-05-14T08:42:01.632Z",
                       "attachments": [],
                       "annotations": []
                     }
@@ -1162,9 +3839,111 @@
                   "status": "unexpected"
                 }
               ],
-              "id": "api-25",
+              "id": "api-45",
               "file": "api.spec.ts",
-              "line": 74,
+              "line": 92,
+              "column": 5
+            },
+            {
+              "title": "PATCH /orders/:id cancels an open order",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 580,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:42:01.726Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "api-46",
+              "file": "api.spec.ts",
+              "line": 104,
+              "column": 5
+            },
+            {
+              "title": "PATCH /orders/:id rejects a cancel for a shipped order",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 543,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:42:01.816Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "api-47",
+              "file": "api.spec.ts",
+              "line": 115,
+              "column": 5
+            },
+            {
+              "title": "GET /orders lists the orders of a customer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 713,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-14T08:42:01.925Z",
+                      "attachments": [],
+                      "annotations": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "api-48",
+              "file": "api.spec.ts",
+              "line": 127,
               "column": 5
             }
           ]
@@ -1175,10 +3954,10 @@
   "errors": [],
   "stats": {
     "startTime": "2026-05-14T08:41:12.318Z",
-    "duration": 64118,
-    "expected": 18,
-    "skipped": 2,
-    "unexpected": 3,
-    "flaky": 2
+    "duration": 72463,
+    "expected": 101,
+    "skipped": 9,
+    "unexpected": 6,
+    "flaky": 4
   }
 }

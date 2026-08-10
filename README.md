@@ -29,7 +29,7 @@ The tests cover the normalizer, which is where a wrong report is turned into wro
 ## What it shows
 
 - Counts for passed, failed, flaky and skipped plus the wall clock duration of the run
-- A test table with status filter, text search over suite and test name, and sorting by duration
+- A test table with status filter, project filter, text search over suite and test name, and sorting by duration
 - The ten slowest tests as horizontal bars
 - The error message of a failing test, expandable per row
 
@@ -37,13 +37,13 @@ A test counts as flaky when the last attempt passed and at least one earlier att
 
 ## Sample data
 
-The sample run is invented. It is built by `scripts/make-sample-report.mjs`, which writes `src/sample-report.json` with fixed numbers, so the file only changes when the script changes:
+The sample run is invented. It is built by `scripts/make-sample-report.mjs`, which writes `src/sample-report.json` from a fixed seed, so the file only changes when the script changes:
 
 ```
 npm run sample
 ```
 
-No report from a customer or employer project is in this repository, and the app marks the sample as synthetic while it is loaded.
+It covers what my runs usually look like: five UI spec files on chromium, firefox and webkit plus an api spec file in its own project, 120 tests in total, with six failures, four flaky tests and a spec that only breaks in webkit. No report from a customer or employer project is in this repository, and the app marks the sample as synthetic while it is loaded.
 
 ## Structure
 
