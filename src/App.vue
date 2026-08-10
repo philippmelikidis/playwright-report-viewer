@@ -5,7 +5,7 @@ import SlowestTests from './components/SlowestTests.vue'
 import TestTable from './components/TestTable.vue'
 import { useReport } from './composables/useReport.js'
 
-const { tests, summary, source, startedAt, error, loadSample, loadFile } = useReport()
+const { tests, summary, source, startedAt, synthetic, error, loadSample, loadFile } = useReport()
 
 loadSample()
 </script>
@@ -17,6 +17,7 @@ loadSample()
       <ReportSource
         :source="source"
         :started-at="startedAt"
+        :synthetic="synthetic"
         @file="loadFile"
         @sample="loadSample"
       />

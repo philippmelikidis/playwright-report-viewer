@@ -117,20 +117,22 @@ export function useReport() {
   const source = ref('')
   const startedAt = ref('')
   const duration = ref(0)
+  const synthetic = ref(false)
   const error = ref('')
 
-  function apply(raw, label) {
+  function apply(raw, label, isSample = false) {
     const report = normalizeReport(raw)
     tests.value = report.tests
     startedAt.value = report.startedAt
     duration.value = report.duration
     source.value = label
+    synthetic.value = isSample
     error.value = ''
   }
 
   function loadSample() {
     try {
-      apply(sampleReport, 'sample-report.json')
+      apply(sampleReport, 'sample-report.json', true)
     } catch (err) {
       error.value = err.message
     }
@@ -156,5 +158,5 @@ export function useReport() {
     return { ...counts, duration: duration.value }
   })
 
-  return { tests, summary, source, startedAt, error, loadSample, loadFile }
+  return { tests, summary, source, startedAt, synthetic, error, loadSample, loadFile }
 }
