@@ -1,6 +1,7 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, reactive, ref, watch } from 'vue'
 import { formatDuration } from '../format.js'
+import { DEFAULT_VIEW, parseViewState, toQueryString } from '../view-state.js'
 
 const props = defineProps({
   tests: { type: Array, required: true }
@@ -8,22 +9,30 @@ const props = defineProps({
 
 const STATUSES = ['passed', 'failed', 'flaky', 'skipped', 'unknown']
 
-const statusFilter = ref('all')
-const projectFilter = ref('all')
-const query = ref('')
-const durationSort = ref('desc')
-const groupByFile = ref(false)
+const view = reactive(parseViewState(window.location.search))
 const expanded = ref(new Set())
 const collapsed = ref(new Set())
 
+watch(view, () => {
+  const url = `${window.location.pathname}${toQueryString(view, DEFAULT_VIEW)}`
+  window.history.replaceState(null, '', url)
+})
+
 const projects = computed(() => [...new Set(props.tests.map((test) => test.project).filter(Boolean))])
+
+// A link can name a project that the loaded report does not have.
+watch(projects, (available) => {
+  if (view.project !== 'all' && !available.includes(view.project)) {
+    view.project = 'all'
+  }
+}, { immediate: true })
 
 // The status counts follow the selected project, otherwise a chip promises rows
 // that the project filter then hides.
 const scopedTests = computed(() =>
-  projectFilter.value === 'all'
+  view.project === 'all'
     ? props.tests
-    : props.tests.filter((test) => test.project === projectFilter.value)
+    : props.tests.filter((test) => test.project === view.project)
 )
 
 const filters = computed(() => {
@@ -40,15 +49,15 @@ const filters = computed(() => {
 })
 
 const visibleTests = computed(() => {
-  const term = query.value.trim().toLowerCase()
+  const term = view.query.trim().toLowerCase()
 
   const matched = scopedTests.value.filter((test) => {
-    if (statusFilter.value !== 'all' && test.status !== statusFilter.value) return false
+    if (view.status !== 'all' && test.status !== view.status) return false
     if (!term) return true
     return `${test.suite} ${test.title} ${test.project}`.toLowerCase().includes(term)
   })
 
-  const direction = durationSort.value === 'desc' ? -1 : 1
+  const direction = view.sort === 'desc' ? -1 : 1
   return matched.sort((a, b) => (a.duration - b.duration) * direction)
 })
 
@@ -67,14 +76,14 @@ const groups = computed(() => {
     if (test.status in group) group[test.status] += 1
   }
 
-  const direction = durationSort.value === 'desc' ? -1 : 1
+  const direction = view.sort === 'desc' ? -1 : 1
   return [...byFile.values()].sort((a, b) => (a.duration - b.duration) * direction)
 })
 
 // One flat list of group headers and test rows keeps the row markup in a single
 // place instead of once per view.
 const rows = computed(() => {
-  if (!groupByFile.value) {
+  if (!view.group) {
     return visibleTests.value.map((test) => ({ kind: 'test', key: test.id, test }))
   }
 
@@ -87,7 +96,7 @@ const rows = computed(() => {
 })
 
 function toggleDurationSort() {
-  durationSort.value = durationSort.value === 'desc' ? 'asc' : 'desc'
+  view.sort = view.sort === 'desc' ? 'asc' : 'desc'
 }
 
 // Refs are unwrapped in template expressions, so the sets are swapped here and
@@ -119,9 +128,9 @@ function toggleRow(test) {
           v-for="filter in filters"
           :key="filter.value"
           class="button"
-          :class="{ 'is-active': statusFilter === filter.value }"
+          :class="{ 'is-active': view.status === filter.value }"
           type="button"
-          @click="statusFilter = filter.value"
+          @click="view.status = filter.value"
         >
           {{ filter.label }} <span class="count">{{ filter.count }}</span>
         </button>
@@ -130,20 +139,20 @@ function toggleRow(test) {
       <div class="lookup">
         <button
           class="button"
-          :class="{ 'is-active': groupByFile }"
+          :class="{ 'is-active': view.group }"
           type="button"
-          @click="groupByFile = !groupByFile"
+          @click="view.group = !view.group"
         >
           Group by file
         </button>
 
-        <select v-if="projects.length > 1" v-model="projectFilter" class="select" aria-label="Filter by project">
+        <select v-if="projects.length > 1" v-model="view.project" class="select" aria-label="Filter by project">
           <option value="all">All projects</option>
           <option v-for="project in projects" :key="project" :value="project">{{ project }}</option>
         </select>
 
         <input
-          v-model="query"
+          v-model="view.query"
           class="search"
           type="search"
           placeholder="Filter by suite or test name"
@@ -162,7 +171,7 @@ function toggleRow(test) {
           <th class="col-duration">
             <button class="sort" type="button" @click="toggleDurationSort">
               Duration
-              <span class="arrow">{{ durationSort === 'desc' ? '↓' : '↑' }}</span>
+              <span class="arrow">{{ view.sort === 'desc' ? '↓' : '↑' }}</span>
             </button>
           </th>
         </tr>
