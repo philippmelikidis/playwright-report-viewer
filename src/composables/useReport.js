@@ -152,12 +152,16 @@ export function useReport() {
     error.value = ''
   }
 
-  function loadSample() {
+  function loadReport(raw, label, isSynthetic = false) {
     try {
-      apply(sampleReport, 'sample-report.json', true)
+      apply(raw, label, isSynthetic)
     } catch (err) {
       error.value = err.message
     }
+  }
+
+  function loadSample() {
+    loadReport(sampleReport, 'sample-report.json', true)
   }
 
   async function loadFile(file) {
@@ -185,5 +189,5 @@ export function useReport() {
     return { ...counts, duration: duration.value }
   })
 
-  return { tests, summary, run, source, startedAt, synthetic, error, loadSample, loadFile }
+  return { tests, summary, run, source, startedAt, synthetic, error, loadSample, loadFile, loadReport }
 }

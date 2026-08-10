@@ -3,11 +3,12 @@ import { ref } from 'vue'
 
 defineProps({
   source: { type: String, default: '' },
+  generatorOpen: { type: Boolean, default: false },
   startedAt: { type: String, default: '' },
   synthetic: { type: Boolean, default: false }
 })
 
-const emit = defineEmits(['file', 'sample'])
+const emit = defineEmits(['file', 'sample', 'generator'])
 const fileInput = ref(null)
 
 function onChange(event) {
@@ -36,6 +37,14 @@ function formatStart(value) {
     <div class="actions">
       <button class="button" type="button" @click="fileInput.click()">Open results.json</button>
       <button class="button" type="button" @click="emit('sample')">Load sample</button>
+      <button
+        class="button"
+        :class="{ 'is-active': generatorOpen }"
+        type="button"
+        @click="emit('generator')"
+      >
+        Generate
+      </button>
       <input ref="fileInput" type="file" accept=".json,application/json" hidden @change="onChange">
     </div>
   </div>

@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import MockReportPanel from './components/MockReportPanel.vue'
 import ReportSource from './components/ReportSource.vue'
 import RunContext from './components/RunContext.vue'
 import SummaryCards from './components/SummaryCards.vue'
@@ -7,9 +8,21 @@ import SlowestTests from './components/SlowestTests.vue'
 import TestTable from './components/TestTable.vue'
 import { useReport } from './composables/useReport.js'
 
-const { tests, summary, run, source, startedAt, synthetic, error, loadSample, loadFile } = useReport()
+const {
+  tests,
+  summary,
+  run,
+  source,
+  startedAt,
+  synthetic,
+  error,
+  loadSample,
+  loadFile,
+  loadReport
+} = useReport()
 
 const dropTarget = ref(false)
+const generatorOpen = ref(false)
 
 function onDrop(event) {
   dropTarget.value = false
@@ -35,14 +48,21 @@ loadSample()
           :source="source"
           :started-at="startedAt"
           :synthetic="synthetic"
+          :generator-open="generatorOpen"
           @file="loadFile"
           @sample="loadSample"
+          @generator="generatorOpen = !generatorOpen"
         />
       </div>
     </header>
 
     <main>
       <p v-if="error" class="notice">{{ error }}</p>
+
+      <MockReportPanel
+        v-if="generatorOpen"
+        @report="(report, label) => loadReport(report, label, true)"
+      />
 
       <template v-if="tests.length">
         <RunContext :run="run" />
