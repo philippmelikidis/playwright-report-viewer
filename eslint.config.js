@@ -14,6 +14,7 @@ export default [
         document: 'readonly',
         window: 'readonly',
         Blob: 'readonly',
+        URLSearchParams: 'readonly',
         URL: 'readonly'
       }
     },

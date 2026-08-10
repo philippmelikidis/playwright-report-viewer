@@ -33,6 +33,7 @@ The tests cover the normalizer, which is where a wrong report is turned into wro
 - The ten slowest tests as horizontal bars
 - Grouping by spec file with test count, failures and total duration per file
 - The error message of a failing test, expandable per row, with the spec file and line
+- The current filter, search, sort and grouping in the url, so a view can be sent as a link
 - The run context from the config block: Playwright version, workers, retries, shard and projects
 
 A test counts as flaky when the last attempt passed and at least one earlier attempt failed. Durations are the sum of all attempts, so a test that timed out twice before passing looks expensive, which is the point.
@@ -56,6 +57,7 @@ src/components/SlowestTests.vue inline SVG bars, no chart library
 src/components/TestTable.vue    filter, search, sort, expandable errors
 src/components/ReportSource.vue file input and sample loader
 src/components/RunContext.vue   version, workers, retries and projects of the run
+src/view-state.js               reads and writes the table state in the query string
 src/sample-report.json          generated sample run, see Sample data
 scripts/make-sample-report.mjs  writes the sample report
 ```
