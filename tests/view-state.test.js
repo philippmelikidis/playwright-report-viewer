@@ -8,12 +8,13 @@ describe('parseViewState', () => {
   })
 
   it('reads every part of the view', () => {
-    expect(parseViewState('?status=flaky&project=webkit&q=cart&sort=asc&group=file')).toEqual({
+    expect(parseViewState('?status=flaky&project=webkit&q=cart&sort=asc&group=file&changed=1')).toEqual({
       status: 'flaky',
       project: 'webkit',
       query: 'cart',
       sort: 'asc',
-      group: true
+      group: true,
+      changed: true
     })
   })
 
@@ -41,7 +42,7 @@ describe('toQueryString', () => {
   })
 
   it('survives a round trip', () => {
-    const view = { status: 'skipped', project: 'firefox', query: 'checkout', sort: 'asc', group: true }
+    const view = { status: 'skipped', project: 'firefox', query: 'checkout', sort: 'asc', group: true, changed: true }
 
     expect(parseViewState(toQueryString(view))).toEqual(view)
   })

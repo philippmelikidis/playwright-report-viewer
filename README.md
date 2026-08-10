@@ -33,10 +33,17 @@ The tests cover the normalizer, which is where a wrong report is turned into wro
 - The ten slowest tests as horizontal bars
 - Grouping by spec file with test count, failures and total duration per file
 - The error message of a failing test, expandable per row, with the spec file and line
+- A comparison against a baseline report: broke, fixed, still failing, now flaky, new
 - The current filter, search, sort and grouping in the url, so a view can be sent as a link
 - The run context from the config block: Playwright version, workers, retries, shard and projects
 
 A test counts as flaky when the last attempt passed and at least one earlier attempt failed. Durations are the sum of all attempts, so a test that timed out twice before passing looks expensive, which is the point.
+
+## Comparing two runs
+
+The question after a run is rarely how many tests failed, it is which ones changed. Load an older `results.json` as baseline and the table gets a change column: broke, fixed, still failing, now flaky, new, plus the duration difference per test. "Changed only" reduces the table to those tests.
+
+Tests are matched by project, suite path and title, because the spec id in the report changes as soon as the file is edited. Tests that exist in the baseline but not in the current run have no row here, so they are only counted in the bar.
 
 ## Generate a report
 
@@ -64,6 +71,8 @@ src/components/TestTable.vue    filter, search, sort, expandable errors
 src/components/ReportSource.vue file input and sample loader
 src/components/RunContext.vue   version, workers, retries and projects of the run
 src/view-state.js               reads and writes the table state in the query string
+src/compare.js                  matches two runs and labels the status changes
+src/components/BaselineBar.vue  baseline file and the change counts
 src/sample-report.json          generated sample run, see Sample data
 src/report-factory.js           builds reports in the shape of the json reporter
 src/components/MockReportPanel.vue settings for a generated run
@@ -72,8 +81,8 @@ scripts/make-sample-report.mjs  writes the sample report
 
 ## Ideas for later
 
-- Keep a few runs in local storage and show a duration and failure trend per test
-- Compare two reports and list the tests that changed status
-- Group the table by spec file with a per file duration, which is usually where the slow setup hides
+- Keep a few runs in local storage and show a duration and failure trend per test, the comparison only knows two runs
+- Show the attachments of a failing test, at least the trace and screenshot names
+- Read the blob reporter output so a sharded run can be looked at without merging it first
 
 Philippos Melikidis, [github.com/philippmelikidis](https://github.com/philippmelikidis)
