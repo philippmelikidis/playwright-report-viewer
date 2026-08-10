@@ -25,6 +25,7 @@ function isFailedAttempt(result) {
 
 // Terminal colour codes end up in the JSON report, they are noise here.
 function stripAnsi(text) {
+  // eslint-disable-next-line no-control-regex
   return String(text).replace(/\u001b\[[0-9;]*m/g, '')
 }
 

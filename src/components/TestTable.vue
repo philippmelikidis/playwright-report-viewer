@@ -78,7 +78,7 @@ function toggleRow(test) {
         type="search"
         placeholder="Filter by suite or test name"
         aria-label="Filter by suite or test name"
-      />
+      >
     </div>
 
     <table>
@@ -102,7 +102,7 @@ function toggleRow(test) {
           <tr :class="{ clickable: !!test.error }" @click="toggleRow(test)">
             <td class="col-status">
               <span class="status">
-                <span class="dot" :class="test.status"></span>
+                <span class="dot" :class="test.status" />
                 {{ test.status }}
               </span>
             </td>

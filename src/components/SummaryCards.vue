@@ -19,7 +19,7 @@ const cards = computed(() => [
   <ul class="cards">
     <li v-for="card in cards" :key="card.key" class="panel card">
       <span class="label">
-        <span v-if="card.key !== 'duration'" class="dot" :class="card.key"></span>
+        <span v-if="card.key !== 'duration'" class="dot" :class="card.key" />
         {{ card.label }}
       </span>
       <strong class="value">{{ card.value }}</strong>
