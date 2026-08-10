@@ -11,8 +11,11 @@ const cards = computed(() => [
   { key: 'failed', label: 'Failed', value: props.summary.failed },
   { key: 'flaky', label: 'Flaky', value: props.summary.flaky },
   { key: 'skipped', label: 'Skipped', value: props.summary.skipped },
+  // Only shown for reports that carry a status this viewer does not map, so the
+  // cards always add up to the number of tests in the table.
+  props.summary.unknown ? { key: 'unknown', label: 'Unknown', value: props.summary.unknown } : null,
   { key: 'duration', label: 'Duration', value: formatDuration(props.summary.duration) }
-])
+].filter(Boolean))
 </script>
 
 <template>
@@ -30,7 +33,7 @@ const cards = computed(() => [
 <style scoped>
 .cards {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 10px;
   margin: 0;
   padding: 0;

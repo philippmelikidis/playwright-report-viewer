@@ -84,6 +84,7 @@ function formatStart(value) {
 
 .actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
 }
 </style>
