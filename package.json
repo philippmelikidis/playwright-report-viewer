@@ -10,6 +10,7 @@
     "build": "vite build",
     "test": "vitest run",
     "lint": "eslint .",
+    "sample": "node scripts/make-sample-report.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

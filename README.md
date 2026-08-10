@@ -35,6 +35,16 @@ The tests cover the normalizer, which is where a wrong report is turned into wro
 
 A test counts as flaky when the last attempt passed and at least one earlier attempt failed. Durations are the sum of all attempts, so a test that timed out twice before passing looks expensive, which is the point.
 
+## Sample data
+
+The sample run is invented. It is built by `scripts/make-sample-report.mjs`, which writes `src/sample-report.json` with fixed numbers, so the file only changes when the script changes:
+
+```
+npm run sample
+```
+
+No report from a customer or employer project is in this repository, and the app marks the sample as synthetic while it is loaded.
+
 ## Structure
 
 ```
@@ -43,7 +53,8 @@ src/components/SummaryCards.vue
 src/components/SlowestTests.vue inline SVG bars, no chart library
 src/components/TestTable.vue    filter, search, sort, expandable errors
 src/components/ReportSource.vue file input and sample loader
-src/sample-report.json          25 tests over three spec files, taken from a run of a shop test suite
+src/sample-report.json          generated sample run, see Sample data
+scripts/make-sample-report.mjs  writes the sample report
 ```
 
 ## Ideas for later
