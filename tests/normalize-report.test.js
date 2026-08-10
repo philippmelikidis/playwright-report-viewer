@@ -212,3 +212,32 @@ describe('formatDuration', () => {
     expect(formatDuration(-5)).toBe('0 ms')
   })
 })
+
+describe('run context', () => {
+  it('reads version, workers, retries, shard and project names from the config', () => {
+    const { run } = normalizeReport({
+      suites: [],
+      config: {
+        version: '1.49.1',
+        workers: 6,
+        retries: 0,
+        shard: { current: 2, total: 4 },
+        projects: [{ name: 'chromium' }, { name: 'api' }, {}]
+      }
+    })
+
+    expect(run).toEqual({
+      version: '1.49.1',
+      workers: 6,
+      retries: 0,
+      shard: '2 of 4',
+      projects: ['chromium', 'api']
+    })
+  })
+
+  it('stays empty when the report has no config block', () => {
+    const { run } = normalizeReport({ suites: [] })
+
+    expect(run).toEqual({ version: '', workers: 0, retries: null, shard: '', projects: [] })
+  })
+})
