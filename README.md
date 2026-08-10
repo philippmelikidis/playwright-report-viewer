@@ -38,6 +38,12 @@ The tests cover the normalizer, which is where a wrong report is turned into wro
 
 A test counts as flaky when the last attempt passed and at least one earlier attempt failed. Durations are the sum of all attempts, so a test that timed out twice before passing looks expensive, which is the point.
 
+## Generate a report
+
+Sometimes I want to look at the viewer without a run at hand, or I need a fixture for something else. The Generate panel builds a report from a seed, a number of spec files, specs per file, browser projects and a failure and flake rate, loads it and offers it as a `results.json` download. The same seed gives the same report.
+
+The panel and the sample script go through `src/report-factory.js`, so there is one definition of what a report looks like.
+
 ## Sample data
 
 The sample run is invented. It is built by `scripts/make-sample-report.mjs`, which writes `src/sample-report.json` from a fixed seed, so the file only changes when the script changes:
@@ -59,6 +65,8 @@ src/components/ReportSource.vue file input and sample loader
 src/components/RunContext.vue   version, workers, retries and projects of the run
 src/view-state.js               reads and writes the table state in the query string
 src/sample-report.json          generated sample run, see Sample data
+src/report-factory.js           builds reports in the shape of the json reporter
+src/components/MockReportPanel.vue settings for a generated run
 scripts/make-sample-report.mjs  writes the sample report
 ```
 
