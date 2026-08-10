@@ -1,10 +1,12 @@
 <script setup>
 import { computed, reactive, ref, watch } from 'vue'
 import { formatDuration } from '../format.js'
+import { CHANGE_LABELS, testKey } from '../compare.js'
 import { DEFAULT_VIEW, parseViewState, toQueryString } from '../view-state.js'
 
 const props = defineProps({
-  tests: { type: Array, required: true }
+  tests: { type: Array, required: true },
+  changes: { type: Map, default: null }
 })
 
 const STATUSES = ['passed', 'failed', 'flaky', 'skipped', 'unknown']
@@ -17,6 +19,22 @@ watch(view, () => {
   const url = `${window.location.pathname}${toQueryString(view, DEFAULT_VIEW)}`
   window.history.replaceState(null, '', url)
 })
+
+const columnCount = computed(() => (props.changes ? 6 : 5))
+
+function changeOf(test) {
+  return props.changes?.get(testKey(test)) ?? null
+}
+
+function changeLabel(test) {
+  return CHANGE_LABELS[changeOf(test)?.kind] || ''
+}
+
+function deltaLabel(test) {
+  const delta = changeOf(test)?.delta ?? 0
+  if (Math.abs(delta) < 250) return ''
+  return `${delta > 0 ? '+' : '-'}${formatDuration(Math.abs(delta))}`
+}
 
 const projects = computed(() => [...new Set(props.tests.map((test) => test.project).filter(Boolean))])
 
@@ -53,6 +71,7 @@ const visibleTests = computed(() => {
 
   const matched = scopedTests.value.filter((test) => {
     if (view.status !== 'all' && test.status !== view.status) return false
+    if (view.changed && !changeLabel(test)) return false
     if (!term) return true
     return `${test.suite} ${test.title} ${test.project}`.toLowerCase().includes(term)
   })
@@ -138,6 +157,16 @@ function toggleRow(test) {
 
       <div class="lookup">
         <button
+          v-if="changes"
+          class="button"
+          :class="{ 'is-active': view.changed }"
+          type="button"
+          @click="view.changed = !view.changed"
+        >
+          Changed only
+        </button>
+
+        <button
           class="button"
           :class="{ 'is-active': view.group }"
           type="button"
@@ -166,6 +195,7 @@ function toggleRow(test) {
         <tr>
           <th class="col-status">Status</th>
           <th>Test</th>
+          <th v-if="changes" class="col-change">Change</th>
           <th class="col-project">Project</th>
           <th class="col-attempts">Attempts</th>
           <th class="col-duration">
@@ -180,7 +210,7 @@ function toggleRow(test) {
       <tbody>
         <template v-for="row in rows" :key="row.key">
           <tr v-if="row.kind === 'group'" class="group-row" @click="toggleGroup(row.group.file)">
-            <td colspan="4">
+            <td :colspan="columnCount - 1">
               <span class="group-toggle">{{ collapsed.has(row.group.file) ? '+' : '-' }}</span>
               <span class="mono">{{ row.group.file }}</span>
               <span class="group-counts">
@@ -214,12 +244,18 @@ function toggleRow(test) {
                   {{ expanded.has(row.test.id) ? 'Hide error' : 'Show error' }}
                 </span>
               </td>
+              <td v-if="changes" class="col-change">
+                <span v-if="changeLabel(row.test)" class="change" :class="changeOf(row.test).kind">
+                  {{ changeLabel(row.test) }}
+                </span>
+                <span v-if="deltaLabel(row.test)" class="delta">{{ deltaLabel(row.test) }}</span>
+              </td>
               <td class="col-project">{{ row.test.project || '-' }}</td>
               <td class="col-attempts">{{ row.test.attempts }}</td>
               <td class="col-duration">{{ formatDuration(row.test.duration) }}</td>
             </tr>
             <tr v-if="row.test.error && expanded.has(row.test.id)" class="error-row">
-              <td colspan="5">
+              <td :colspan="columnCount">
                 <p class="location mono">{{ row.test.file }}:{{ row.test.line }}</p>
                 <pre>{{ row.test.error }}</pre>
               </td>
@@ -228,7 +264,7 @@ function toggleRow(test) {
         </template>
 
         <tr v-if="!rows.length">
-          <td colspan="5" class="empty">No test matches the current filter.</td>
+          <td :colspan="columnCount" class="empty">No test matches the current filter.</td>
         </tr>
       </tbody>
     </table>
@@ -242,6 +278,7 @@ function toggleRow(test) {
 
 .controls {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -266,6 +303,7 @@ function toggleRow(test) {
 
 .lookup {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
 }
 
@@ -406,6 +444,39 @@ tr.clickable:hover {
   width: 108px;
 }
 
+.col-change {
+  width: 120px;
+}
+
+.change {
+  display: block;
+  text-transform: lowercase;
+}
+
+.change.broke,
+.change.stillFailing {
+  color: var(--failed);
+}
+
+.change.fixed {
+  color: var(--passed);
+}
+
+.change.newFlake {
+  color: var(--flaky);
+}
+
+.change.new {
+  color: var(--accent);
+}
+
+.delta {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
 .col-project,
 .col-attempts {
   width: 92px;
@@ -468,6 +539,10 @@ th.col-duration {
   .col-project,
   .col-attempts {
     display: none;
+  }
+
+  .col-change {
+    width: auto;
   }
 }
 </style>

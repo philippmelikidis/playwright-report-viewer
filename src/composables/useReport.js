@@ -1,5 +1,6 @@
 import { computed, ref } from 'vue'
 import sampleReport from '../sample-report.json'
+import { compareReports } from '../compare.js'
 
 // Playwright writes the per-test verdict as expected/unexpected/flaky/skipped.
 // Used as a fallback when the result entries are missing or carry a status we
@@ -139,22 +140,22 @@ export function useReport() {
   const duration = ref(0)
   const run = ref({ ...EMPTY_RUN })
   const synthetic = ref(false)
+  const baseline = ref(null)
   const error = ref('')
 
-  function apply(raw, label, isSample = false) {
-    const report = normalizeReport(raw)
+  function setReport(report, label, isSynthetic) {
     tests.value = report.tests
     run.value = report.run
     startedAt.value = report.startedAt
     duration.value = report.duration
     source.value = label
-    synthetic.value = isSample
+    synthetic.value = isSynthetic
     error.value = ''
   }
 
   function loadReport(raw, label, isSynthetic = false) {
     try {
-      apply(raw, label, isSynthetic)
+      setReport(normalizeReport(raw), label, isSynthetic)
     } catch (err) {
       error.value = err.message
     }
@@ -164,21 +165,43 @@ export function useReport() {
     loadReport(sampleReport, 'sample-report.json', true)
   }
 
-  async function loadFile(file) {
-    if (!file) return
-
+  // Returns null and leaves a message behind when the file cannot be used, so
+  // the report that is on screen stays where it is.
+  async function readFile(file) {
     if (!/\.json$/i.test(file.name)) {
       error.value = `${file.name} is not a JSON file. The Playwright JSON reporter writes results.json.`
-      return
+      return null
     }
 
     try {
-      apply(JSON.parse(await file.text()), file.name)
+      return normalizeReport(JSON.parse(await file.text()))
     } catch (err) {
       error.value = err instanceof SyntaxError
         ? `${file.name} is not valid JSON: ${err.message}`
         : err.message
+      return null
     }
+  }
+
+  async function loadFile(file) {
+    if (!file) return
+
+    const report = await readFile(file)
+    if (report) setReport(report, file.name, false)
+  }
+
+  async function loadBaseline(file) {
+    if (!file) return
+
+    const report = await readFile(file)
+    if (report) {
+      baseline.value = { tests: report.tests, source: file.name, startedAt: report.startedAt }
+      error.value = ''
+    }
+  }
+
+  function clearBaseline() {
+    baseline.value = null
   }
 
   const summary = computed(() => {
@@ -189,5 +212,24 @@ export function useReport() {
     return { ...counts, duration: duration.value }
   })
 
-  return { tests, summary, run, source, startedAt, synthetic, error, loadSample, loadFile, loadReport }
+  const comparison = computed(() =>
+    baseline.value ? compareReports(tests.value, baseline.value.tests) : null
+  )
+
+  return {
+    tests,
+    summary,
+    run,
+    source,
+    startedAt,
+    synthetic,
+    baseline,
+    comparison,
+    error,
+    loadSample,
+    loadFile,
+    loadReport,
+    loadBaseline,
+    clearBaseline
+  }
 }

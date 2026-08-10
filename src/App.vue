@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import BaselineBar from './components/BaselineBar.vue'
 import MockReportPanel from './components/MockReportPanel.vue'
 import ReportSource from './components/ReportSource.vue'
 import RunContext from './components/RunContext.vue'
@@ -16,9 +17,13 @@ const {
   startedAt,
   synthetic,
   error,
+  baseline,
+  comparison,
   loadSample,
   loadFile,
-  loadReport
+  loadReport,
+  loadBaseline,
+  clearBaseline
 } = useReport()
 
 const dropTarget = ref(false)
@@ -68,7 +73,13 @@ loadSample()
         <RunContext :run="run" />
         <SummaryCards :summary="summary" />
         <SlowestTests :tests="tests" />
-        <TestTable :tests="tests" />
+        <BaselineBar
+          :baseline="baseline"
+          :summary="comparison?.summary"
+          @file="loadBaseline"
+          @clear="clearBaseline"
+        />
+        <TestTable :tests="tests" :changes="comparison?.changes" />
       </template>
 
       <p v-else-if="!error" class="notice muted">
