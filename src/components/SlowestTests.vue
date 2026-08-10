@@ -112,7 +112,7 @@ header {
 }
 
 .track {
-  fill: #eef0f1;
+  fill: var(--rule);
 }
 
 .fill {

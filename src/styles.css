@@ -5,6 +5,11 @@
   --surface: #ffffff;
   --border: #dde1e4;
   --border-strong: #c6ccd1;
+  --rule: #eef0f1;
+  --surface-alt: #fafbfb;
+  --surface-group: #f2f5f5;
+  --surface-error: #fdf7f6;
+  --border-error: #f0dcd9;
   --text: #1b2226;
   --muted: #5c666d;
   --passed: #2f7d3a;

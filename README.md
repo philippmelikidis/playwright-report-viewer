@@ -24,7 +24,7 @@ npm run lint
 npm test
 ```
 
-The tests cover the normalizer, which is where a wrong report is turned into wrong numbers: nested suites, retries, flaky detection, unknown statuses and missing fields.
+The unit tests cover the parts where a wrong report turns into wrong numbers: the normalizer (nested suites, retries, flaky detection, unknown statuses, missing fields, broken input), the comparison, the view state in the url and the report factory.
 
 ## What it shows
 
@@ -64,19 +64,22 @@ It covers what my runs usually look like: five UI spec files on chromium, firefo
 ## Structure
 
 ```
-src/composables/useReport.js   flattens the nested suites into one test list and derives the status
-src/components/SummaryCards.vue
-src/components/SlowestTests.vue inline SVG bars, no chart library
-src/components/TestTable.vue    filter, search, sort, expandable errors
-src/components/ReportSource.vue file input and sample loader
-src/components/RunContext.vue   version, workers, retries and projects of the run
-src/view-state.js               reads and writes the table state in the query string
-src/compare.js                  matches two runs and labels the status changes
-src/components/BaselineBar.vue  baseline file and the change counts
-src/sample-report.json          generated sample run, see Sample data
-src/report-factory.js           builds reports in the shape of the json reporter
-src/components/MockReportPanel.vue settings for a generated run
-scripts/make-sample-report.mjs  writes the sample report
+src/composables/useReport.js        loads a report, flattens the nested suites, derives the status
+src/compare.js                      matches two runs and labels the status changes
+src/view-state.js                   reads and writes the table state in the query string
+src/report-factory.js               builds reports in the shape of the json reporter
+src/format.js                       durations for humans
+src/components/
+  ReportSource.vue                  file input, sample loader, generator toggle
+  RunContext.vue                    version, workers, retries and projects of the run
+  SummaryCards.vue                  the counts and the run duration
+  SlowestTests.vue                  inline svg bars, no chart library
+  BaselineBar.vue                   baseline file and the change counts
+  MockReportPanel.vue               settings for a generated run
+  TestTable.vue                     filter, search, sort, grouping, expandable errors
+src/sample-report.json              generated sample run, see Sample data
+scripts/make-sample-report.mjs      writes the sample report
+tests/                              vitest, no browser needed
 ```
 
 ## Ideas for later

@@ -128,8 +128,8 @@ main {
 .notice {
   margin: 0;
   padding: 10px 14px;
-  background: #fdf3f2;
-  border: 1px solid #f0dcd9;
+  background: var(--surface-error);
+  border: 1px solid var(--border-error);
   border-radius: 3px;
   color: var(--failed);
 }
