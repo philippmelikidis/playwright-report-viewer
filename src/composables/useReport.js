@@ -92,6 +92,25 @@ function collectTests(suites, parentPath, target) {
   return target
 }
 
+const EMPTY_RUN = { version: '', workers: 0, retries: null, shard: '', projects: [] }
+
+function normalizeRun(config) {
+  if (!config || typeof config !== 'object') return { ...EMPTY_RUN }
+
+  const retries = Number(config.retries)
+  const shard = config.shard && typeof config.shard === 'object' ? config.shard : null
+
+  return {
+    version: typeof config.version === 'string' ? config.version : '',
+    workers: Number(config.workers) || 0,
+    retries: Number.isFinite(retries) ? retries : null,
+    shard: shard ? `${shard.current} of ${shard.total}` : '',
+    projects: Array.isArray(config.projects)
+      ? config.projects.map((project) => project?.name).filter(Boolean)
+      : []
+  }
+}
+
 export function normalizeReport(raw) {
   if (!raw || typeof raw !== 'object' || !Array.isArray(raw.suites)) {
     throw new Error('This file does not look like a Playwright JSON report, no "suites" array found.')
@@ -103,6 +122,7 @@ export function normalizeReport(raw) {
 
   return {
     tests,
+    run: normalizeRun(raw.config),
     startedAt: typeof stats.startTime === 'string' ? stats.startTime : '',
     // Wall clock time from the runner is more honest than the sum of test
     // durations, which counts parallel workers twice.
@@ -117,12 +137,14 @@ export function useReport() {
   const source = ref('')
   const startedAt = ref('')
   const duration = ref(0)
+  const run = ref({ ...EMPTY_RUN })
   const synthetic = ref(false)
   const error = ref('')
 
   function apply(raw, label, isSample = false) {
     const report = normalizeReport(raw)
     tests.value = report.tests
+    run.value = report.run
     startedAt.value = report.startedAt
     duration.value = report.duration
     source.value = label
@@ -141,6 +163,11 @@ export function useReport() {
   async function loadFile(file) {
     if (!file) return
 
+    if (!/\.json$/i.test(file.name)) {
+      error.value = `${file.name} is not a JSON file. The Playwright JSON reporter writes results.json.`
+      return
+    }
+
     try {
       apply(JSON.parse(await file.text()), file.name)
     } catch (err) {
@@ -158,5 +185,5 @@ export function useReport() {
     return { ...counts, duration: duration.value }
   })
 
-  return { tests, summary, source, startedAt, synthetic, error, loadSample, loadFile }
+  return { tests, summary, run, source, startedAt, synthetic, error, loadSample, loadFile }
 }

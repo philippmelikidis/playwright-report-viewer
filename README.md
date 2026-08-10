@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-The sample report is loaded on startup, so the app shows something right away. Use "Open results.json" to look at your own run. The file is parsed in the browser, nothing is uploaded anywhere.
+The sample report is loaded on startup, so the app shows something right away. Use "Open results.json" or drop a file anywhere on the window to look at your own run. The file is parsed in the browser, nothing is uploaded anywhere.
 
 To get a JSON report out of Playwright:
 
@@ -31,7 +31,8 @@ The tests cover the normalizer, which is where a wrong report is turned into wro
 - Counts for passed, failed, flaky and skipped plus the wall clock duration of the run
 - A test table with status filter, project filter, text search over suite and test name, and sorting by duration
 - The ten slowest tests as horizontal bars
-- The error message of a failing test, expandable per row
+- The error message of a failing test, expandable per row, with the spec file and line
+- The run context from the config block: Playwright version, workers, retries, shard and projects
 
 A test counts as flaky when the last attempt passed and at least one earlier attempt failed. Durations are the sum of all attempts, so a test that timed out twice before passing looks expensive, which is the point.
 
@@ -53,6 +54,7 @@ src/components/SummaryCards.vue
 src/components/SlowestTests.vue inline SVG bars, no chart library
 src/components/TestTable.vue    filter, search, sort, expandable errors
 src/components/ReportSource.vue file input and sample loader
+src/components/RunContext.vue   version, workers, retries and projects of the run
 src/sample-report.json          generated sample run, see Sample data
 scripts/make-sample-report.mjs  writes the sample report
 ```
